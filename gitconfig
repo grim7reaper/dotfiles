@@ -1,0 +1,117 @@
+# {{{ user
+
+[user]
+    email      = sylvain.laperche@gmail.com
+    name       = Sylvain Laperche
+    signingKey = 4BA64AD0
+
+# }}}
+# {{{ alias
+
+[alias]
+    # branch
+    br       = branch
+    bra      = branch --all
+    contains = branch --all --contains
+    # checkout
+    co  = checkout
+    cob = checkout -b
+    cop = checkout --patch
+    # cherry-pick
+    cp  = cherry-pick -x
+    cpa = cherry-pick --abort
+    cpc = cherry-pick --continue
+    # commit
+    ci    = commit --verbose
+    ca    = commit --verbose --amend
+    cf    = commit --verbose --fixup
+    cs    = commit --verbose --squash
+    wip   = commit --all --message=WIP
+    start = commit --message 'Initial commit' --allow-empty
+    # diff
+    df  = diff
+    dfc = diff --cached
+    # rebase
+    ri = rebase --interactive
+    ra = rebase --abort
+    rc = rebase --continue
+    # Misc.
+    ls = ls-files
+    rl = reflog --pretty=reflog
+    st = status --short
+    su = submodule update --init --recursive
+
+    cfg = !$EDITOR $(readlink -f ~/.gitconfig)
+    pop = reset HEAD~1
+    rem = remote --verbose
+
+    addp    = add --patch
+    track   = add --intent-to-add
+    untrack = rm --cached
+
+# }}}
+# {{{ color
+
+[color]
+    branch      = auto
+    diff        = auto
+    interactive = auto
+    status      = auto
+    ui          = auto
+
+# }}}
+# {{{ pretty
+
+[pretty]
+    # reflog with date.
+    reflog = %C(auto)%h %<|(17)%gd %C(blue)%cI%C(reset) %gs
+
+# }}}
+# {{{ core
+
+[core]
+    editor = vim
+    pager  = less
+
+# }}}
+# {{{ Commands
+# {{{ apply
+
+[apply]
+    whitespace=error
+
+# }}}
+# {{{ diff
+
+[diff]
+    renames = copies
+
+# }}}
+# {{{ grep
+
+[grep]
+    lineNumber = true
+
+# }}}
+# {{{ merge
+
+[merge]
+    conflictStyle = diff3
+    stat          = true
+    tool          = vimdiff
+
+# }}}
+# {{{ push
+
+[push]
+    default = simple
+
+# }}}
+# {{{ rebase
+
+[rebase]
+    autosquash = true
+    stat       = true
+
+# }}}
+# }}}
