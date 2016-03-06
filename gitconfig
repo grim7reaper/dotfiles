@@ -93,6 +93,12 @@
     lineNumber = true
 
 # }}}
+# {{{ init
+
+[init]
+    templateDir = ~/.local/share/git/template
+
+# }}}
 # {{{ merge
 
 [merge]
