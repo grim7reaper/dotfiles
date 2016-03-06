@@ -1,0 +1,23 @@
+! {{{ URxvt
+
+URxvt.termName: rxvt-unicode-256color
+URxvt.geometry: 200x50
+URxvt.saveLines: 10000
+URxvt.font: xft:Inconsolata:size=8.5,xft:WenQuanYi Micro Hei Mono:size=8.5
+URxvt.background:  black
+URxvt.foreground:  white
+URxvt.cursorColor: white
+
+! {{{ Extensions
+
+URxvt.perl-lib : .local/share/urxvt/perl
+URxvt.perl-ext-common: default,tabbed,clipboard,keyboard-select,url-select
+
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.url-select.launcher: firefox
+
+! }}}
+! }}}
