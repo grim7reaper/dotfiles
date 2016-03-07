@@ -1,5 +1,11 @@
 set nocompatible " Disable the compatibility with Vi.
 
+" {{{ Pathogen
+
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
+
+" }}}
 " {{{ Filetype
 
 " Enable loading the plugin files for specific file types.

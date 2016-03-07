@@ -1,3 +1,6 @@
 [submodule "local/share/urxvt/perl"]
 	path = local/share/urxvt/perl
 	url = https://github.com/muennich/urxvt-perls.git
+[submodule "vim/bundle/vim-pathogen"]
+	path = vim/bundle/vim-pathogen
+	url = http://github.com/tpope/vim-pathogen.git
