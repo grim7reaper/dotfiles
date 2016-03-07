@@ -121,3 +121,10 @@
 
 # }}}
 # }}}
+# {{{ transfer
+
+[transfer]
+    # https://groups.google.com/forum/#!topic/binary-transparency/f-BI4o8HZW0
+    fsckObjects = true
+
+# }}}
