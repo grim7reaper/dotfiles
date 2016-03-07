@@ -77,6 +77,8 @@ syntax on           " Turn on color syntax highlighting.
 autocmd BufNewFile,BufRead *.tpp setfiletype=cpp
 " Treat *.md files as Markdown.
 autocmd BufNewFile,BufReadPost *.md setfiletype=markdown
+" Treat Weave files as noweb.
+autocmd BufNewFile,BufRead *.Snw setfiletype=noweb
 " Enable spell checking.
 autocmd BufNewFile,BufRead *.tex  setlocal spell spelllang=fr
 " Prevent the buffer listing from becoming swamped with fugitive buffers.
@@ -131,6 +133,13 @@ set statusline+=%-10.(%l,%v-%c%)\ %<%P       " Offset
 
 " }}}
 " {{{ Misc.
+" {{{ noweb
+
+let noweb_backend   = 'tex'
+let noweb_language  = 'r'
+let noweb_fold_code = 1
+
+" }}}
 " {{{ TOhtml settings.
 
 let use_xhtml=1               " Generate XHTML 1.0 instead of HTML 4.01

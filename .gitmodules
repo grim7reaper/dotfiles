@@ -19,3 +19,21 @@
 [submodule "vim/bundle/vim-speeddating"]
 	path = vim/bundle/vim-speeddating
 	url = https://github.com/tpope/vim-speeddating.git
+[submodule "vim/bundle/rust.vim"]
+	path = vim/bundle/rust.vim
+	url = https://github.com/wting/rust.vim.git
+[submodule "vim/bundle/cocci-syntax"]
+	path = vim/bundle/cocci-syntax
+	url = https://github.com/kAworu/vim-coccinelle.git
+[submodule "vim/bundle/conky-syntax"]
+	path = vim/bundle/conky-syntax
+	url = https://github.com/smancill/conky-syntax.vim.git
+[submodule "vim/bundle/noweb-syntax"]
+	path = vim/bundle/noweb-syntax
+	url = https://github.com/muggenhor/Vim-Noweb.git
+[submodule "vim/bundle/tmux-syntax"]
+	path = vim/bundle/tmux-syntax
+	url = https://github.com/pearance/vim-tmux.git
+[submodule "vim/bundle/rfc-syntax"]
+	path = vim/bundle/rfc-syntax
+	url = https://github.com/vim-scripts/rfc-syntax.git
