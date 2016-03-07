@@ -151,4 +151,12 @@ let html_no_invalid=1         " Don't use invalid attribute for uncopyable text.
 let html_use_encoding="UTF-8" " Use UTF-8 encoding.
 
 " }}}
+" {{{ YouCompleteMe
+
+let g:ycm_extra_conf_vim_data   = [ '&filetype' ]
+let g:ycm_global_ycm_extra_conf = "~/.vim/ycm_extra_conf.py"
+
+let g:ycm_python_binary_path = '/usr/bin/python3'
+
+" }}}
 " }}}
