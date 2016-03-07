@@ -11,10 +11,8 @@ URxvt.cursorColor: white
 ! {{{ Extensions
 
 URxvt.perl-lib : .local/share/urxvt/perl
-URxvt.perl-ext-common: default,tabbed,clipboard,keyboard-select,url-select
+URxvt.perl-ext-common: default,tabbed,selection-to-clipboard,keyboard-select,url-select
 
-URxvt.keysym.M-c: perl:clipboard:copy
-URxvt.keysym.M-v: perl:clipboard:paste
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.url-select.launcher: firefox
