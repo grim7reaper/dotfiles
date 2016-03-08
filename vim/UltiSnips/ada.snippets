@@ -1,0 +1,234 @@
+# {{{ Conditional
+# {{{ if/else
+
+snippet if "if" b
+if $1 then
+    ${VISUAL}$0
+end if;
+endsnippet
+
+snippet elif "elsif" b
+elsif $1 then
+    ${VISUAL}$0
+endsnippet
+
+snippet el "else" b
+else
+    ${VISUAL}$0
+endsnippet
+
+snippet ife "if ... else" b
+if $1 then
+    $2
+else
+    $0
+end if;
+endsnippet
+
+snippet ifex "if expression"
+if $1 then $2 else $0
+endsnippet
+
+# }}}
+# {{{ case/when
+
+snippet sw "switch" b
+case ${1:var} is
+    when ${2:value} =>
+	$3
+    when others =>
+	$0
+end case;
+endsnippet
+
+snippet ca "case ..." b
+case $1 is
+    when $2 => $3
+endsnippet
+
+# }}}
+# }}}
+# {{{ Loop
+# {{{ For
+
+snippet for "for in [start, stop]" b
+for ${1:I} in ${2:Start} .. ${3:Stop} loop
+    ${VISUAL}$0
+end loop;
+endsnippet
+
+snippet forr "for in Range" b
+for ${1:Elt} in ${2:enum}'Range loop
+    ${VISUAL}$0
+end loop;
+endsnippet
+
+snippet fore "for each" b
+for ${1:It} of ${2:iterator} loop
+    $0
+end loop;
+endsnippet
+
+snippet fora "for all" b
+for all ${1:Var} in ${2:range} => ${3:predicate}
+endsnippet
+
+snippet fors "for some" b
+for some ${1:Var} in ${2:range} => ${3:predicate}
+endsnippet
+
+# }}}
+
+snippet loop "loop" b
+loop
+    ${VISUAL}$0
+end loop;
+endsnippet
+
+snippet wh "while loop" b
+while ${1:condition} loop
+    ${VISUAL}$0
+end loop;
+endsnippet
+
+# }}}
+# {{{ Packages
+
+snippet pac "package" b
+package ${1:`!p snip.rv = snip.basename.title().replace('-', '.')`} is
+    ${VISUAL}$0
+end $1;
+endsnippet
+
+snippet pacb "package body" b
+package body ${1:`!p snip.rv = snip.basename.title().replace('-', '.')`} is
+    ${VISUAL}$0
+end $1;
+endsnippet
+
+snippet wi "with" b
+with $1;$0
+endsnippet
+
+# }}}
+# {{{ Subprograms
+# {{{ Functions
+
+snippet fund "function declaration" b
+function ${1:name}($2) return $3;
+endsnippet
+
+snippet fun "function" b
+function ${1:name}($2) return $3 is
+    $4
+begin
+    ${VISUAL}$0
+end $1;
+endsnippet
+
+snippet fune "function expression" b
+function $1 return $2 is
+    ($3);
+endsnippet
+
+snippet xret "extended return" b
+return $1 do
+    $0
+end return;
+endsnippet
+
+# }}}
+# {{{ Procedures
+
+snippet procd "procedure declaration" b
+procedure ${1:name}($2);
+endsnippet
+
+snippet proc "procedure" b
+procedure ${1:name}($2) is
+    $3
+begin
+    ${VISUAL}$0
+end $1;
+endsnippet
+
+# }}}
+
+snippet dec "declare block" b
+declare
+    $1
+begin
+    $0
+end;
+endsnippet
+
+# }}}
+# {{{ Tasks and al.
+
+snippet acc "accept"
+accept $1($2) do
+    $0
+end $1;
+endsnippet
+
+snippet ent "entry ... when"
+entry $1($2) when $3 is
+begin
+    $0
+end $1;
+endsnippet
+
+# {{{ Protected types
+
+snippet prot "protected type" b
+protected type $1($2) is
+    $0
+end $1;
+endsnippet
+
+snippet prob "protected body" b
+protected body $1 is
+    $2
+begin
+    $0
+end $1;
+endsnippet
+
+# }}}
+# {{{ Tasks
+
+snippet task "task" b
+task $1 is
+    entry $0
+end $1;
+endsnippet
+
+snippet taskb "task body" b
+task body $1 is
+    $2
+begin
+    $0
+end $1;
+endsnippet
+
+# }}}
+# }}}
+# {{{ New types, records, ...
+
+snippet ty "type" b
+type $1 is $2;
+endsnippet
+
+snippet sty "subtype" b
+subtype $1 is $2;
+endsnippet
+
+snippet rec "record" b
+type $1 is
+    record
+	$0
+    end record;
+endsnippet
+
+# }}}
+# vim:ft=snippets:fdm=marker:fdl=0
