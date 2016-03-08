@@ -1,0 +1,233 @@
+# {{{ Conditional
+# {{{ if/else
+
+snippet if "if"
+if (${1}) {
+    ${VISUAL}${0}
+}
+endsnippet
+
+snippet elif "else if"
+else if (${1}) {
+    ${VISUAL}${0}
+}
+endsnippet
+
+snippet el "else"
+else {
+    ${VISUAL}${0}
+}
+endsnippet
+
+snippet ife "if ... else"
+if ($1) {
+    $2
+} else {
+    $0
+}
+endsnippet
+
+# }}}
+
+snippet ?: "ternary"
+${1} ? ${2} : ${3}
+endsnippet
+
+# {{{ switch/case
+
+snippet sw "switch" b
+switch (${1:var}) {
+case ${2:val}:
+    ${3}
+    ${4:break;}${5}
+default:
+    ${6:/* NOT REACHED */}
+    break;
+}
+endsnippet
+
+snippet ca "case ..." b
+case ${1:val}:
+    ${2}
+    ${3:break;}
+endsnippet
+
+# }}}
+# }}}
+# {{{ Function
+
+snippet fund "function declaration" b
+${1:void} ${2:fname}(${3:void});
+endsnippet
+
+snippet fun "function" b
+${1:void} ${2:fname}(${3:void})
+{
+    ${VISUAL}${0}
+}
+endsnippet
+
+snippet main "int main(argc, argv)" b
+int main(int argc, char* argv[])
+{
+    ${0}
+    return 0;
+}
+endsnippet
+
+snippet mainn "int main(void)" b
+int main(void)
+{
+    ${0}
+    return 0;
+}
+endsnippet
+
+# }}}
+# {{{ Header
+
+snippet header "file header" b
+/*
+ *    Filename: `!p snip.rv = snip.fn or 'UNTITLED'`
+ * Description: ${1}
+ *     Created: `!v strftime("%Y/%m/%d %H:%M:%S")`
+ *      Author: `!v g:snips_author` <`!v g:snips_email`>
+ */
+endsnippet
+
+snippet once "include guard" b
+#ifndef ${1:`!p
+import time
+name   = snip.basename.upper() or 'UNTITLED'
+tstamp = time.strftime('%Y%m%d%H%M%S')
+snip.rv = 'H_%s_LS_%s' % (name, tstamp)`}
+#define $1
+
+${VISUAL}${0}
+
+#endif /* $1 */
+endsnippet
+
+# }}}
+# {{{ Loop
+
+snippet do "do/while" b
+do {
+    ${VISUAL}${0}
+} while (${1});
+endsnippet
+
+snippet for "for (x = 0; x < n; ++x)" b
+for (${1:i} = 0; $1 < ${2:count}; ++$1) {
+    ${VISUAL}${0}
+}
+endsnippet
+
+snippet forr "for" b
+for (${1:i} = ${2:0}; ${3:$1 < 10}; ${4:++}$1) {
+    ${VISUAL}${0}
+}
+endsnippet
+
+snippet wh "while" b
+while (${1}) {
+    ${VISUAL}${0}
+}
+endsnippet
+
+snippet loop "while (1)" b
+while (1) {
+    ${VISUAL}${0}
+}
+endsnippet
+
+# }}}
+# {{{ Preprocessor
+
+snippet #if "#if ... #endif" b
+#if ${1:0}
+${VISUAL}${0}
+#endif /* $1 */
+endsnippet
+
+snippet #elif "#elif" b
+#elif ${1:CONDITION}
+endsnippet
+
+snippet #el "#else" b
+#else
+endsnippet
+
+snippet ifdef "#ifdef SYMBOL" b
+#ifdef ${1:SYMBOL}
+${0}
+#endif /* $1 */
+endsnippet
+
+snippet ifndef "#ifndef SYMBOL" b
+#ifndef $1
+#define ${1:SYMBOL} ${2:VALUE}
+#endif /* $1 */
+endsnippet
+
+snippet def "#define SYMBOL" b
+#define ${0:SYMBOL}
+endsnippet
+
+snippet defv "#define SYMBOL VALUE" b
+#define ${1:SYMBOL} ${2:VALUE}
+endsnippet
+
+snippet inc "#include system header" b
+#include <${1:stdlib}.h>
+endsnippet
+
+snippet incc "#include local header" b
+#include "${1:`!p snip.rv = snip.basename + '.h'`}"
+endsnippet
+
+# }}}
+# {{{ enum, struct, union
+
+snippet td "typedef" b
+typedef ${1:int} ${2:new_name};
+endsnippet
+
+snippet en "enum" b
+enum {
+    ${0}
+};
+endsnippet
+
+snippet tden "typedef enum" b
+typedef enum {
+    ${0}
+} ${2:foo};
+endsnippet
+
+snippet st "struct" b
+struct ${1:`!p snip.rv = snip.basename or 'foo'`} {
+    ${0}
+};
+endsnippet
+
+snippet tdst "typedef struct" b
+typedef struct ${2:$1_}{
+    ${0}
+} ${1:`!p snip.rv = snip.basename or 'foo'`};
+endsnippet
+
+snippet un "union" b
+union {
+    ${0}
+};
+endsnippet
+
+snippet tdun "typedef union" b
+typedef union {
+    ${0}
+} ${2:foo};
+endsnippet
+
+# }}}
+# vim:ft=snippets:fdm=marker:fdl=0
