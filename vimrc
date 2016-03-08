@@ -151,6 +151,17 @@ let html_no_invalid=1         " Don't use invalid attribute for uncopyable text.
 let html_use_encoding="UTF-8" " Use UTF-8 encoding.
 
 " }}}
+" {{{ UltiSnips
+
+" Compatibility with YouCompleteMe.
+let g:UltiSnipsExpandTrigger       = "<c-j>"
+let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+" Snippet's variables
+let g:snips_author = "Sylvain Laperche"
+let g:snips_email  = "sylvain.laperche@gmail.com"
+
+" }}}
 " {{{ YouCompleteMe
 
 let g:ycm_extra_conf_vim_data   = [ '&filetype' ]
