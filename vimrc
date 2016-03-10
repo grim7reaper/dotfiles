@@ -133,6 +133,9 @@ set statusline+=%-10.(%l,%v-%c%)\ %<%P       " Offset
 
 " }}}
 " {{{ Misc.
+
+let g:load_doxygen_syntax=1 " Turn on Doxygen syntax highlighting.
+
 " {{{ noweb
 
 let noweb_backend   = 'tex'
