@@ -1,0 +1,56 @@
+# {{{ General
+
+msgcolor=yes    # Enable colorful console output
+msgmodule=yes   # Prepend module name in front of each console message.
+
+# }}}
+# {{{ Player
+
+fixed-vo=yes    # Use only one window to play all files.
+pausing=2       # Keep the paused/playing status after a command has finished.
+
+noar=yes        # Turns off AppleIR remote support.
+nojoystick=yes  # Turns off joystick support.
+nolirc=yes      # Turns off LIRC support.
+
+# }}}
+# {{{ Demuxer/stream
+
+alang=chi,jpn,eng,fre   # Priority list of audio languages to use.
+
+cdrom-device=/dev/sr0   # Path to the CD-ROM device.
+dvd-device=/dev/sr0     # Path to the DVD device.
+
+# }}}
+# {{{ OSD/subtitle
+
+ass=yes         # Turn on SSA/ASS subtitle rendering.
+fontconfig=yes  # Enables the usage of fontconfig managed fonts.
+utf8=yes        # Handle the subtitle file as UTF-8.
+
+progbar-align=50    # Set the vertical alignment of the progress bar to center.
+spuaa=3             # Use bilinear antialiasing/scaling mode for DVD/VOBsub.
+sub-fuzziness=1     # Load all subs containing media filename.
+
+slang=eng,fre,chi,jpn       # Priority list of subtitle languages to use.
+subfont-encoding=unicode    # Use Unicode as font encoding.
+
+# }}}
+# {{{ Audio output drivers
+
+ao=alsa     # Priority list of audio output drivers to use.
+
+# }}}
+# {{{ Video output
+
+fs=yes                  # Fullscreen playback.
+stop-xscreensaver=yes   # Turns off xscreensaver.
+use-filename-title=yes  # Use the media filename as window title.
+
+# }}}
+# {{{ Video output drivers
+
+vo=vdpau,   #  Priority list of video output drivers to use.
+
+# }}}
+# vim:ft=cfg
