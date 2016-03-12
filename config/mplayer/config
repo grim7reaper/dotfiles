@@ -53,4 +53,9 @@ use-filename-title=yes  # Use the media filename as window title.
 vo=vdpau,   #  Priority list of video output drivers to use.
 
 # }}}
+# {{{ Video filters
+
+vf=screenshot       # Enable screenshot.
+
+# }}}
 # vim:ft=cfg
