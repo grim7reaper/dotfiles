@@ -1,0 +1,99 @@
+# {{{ Directories
+
+# Directory for storing ncmpcpp related files.
+ncmpcpp_directory = "~/.local/share/ncmpcpp"
+# Directory for storing downloaded lyrics.
+lyrics_directory = "~/.local/share/ncmpcpp/lyrics"
+
+# }}}
+# {{{ Connection settings
+
+# MPD address.
+mpd_host               = "localhost"
+mpd_port               = "6600"
+# Path to the music directory (needed for the tag editor).
+mpd_music_dir          = "~/Music"
+# Connection timeout (s) to MPD.
+mpd_connection_timeout = "5"
+
+# }}}
+# {{{ Music visualizer
+
+# The FIFO output's format is set to "44100:16:2" in mpd.conf.
+visualizer_in_stereo = "yes"
+# Path to MPD fifo output.
+visualizer_fifo_path = "/tmp/mpd.fifo"
+# Name of output that provides data for visualizer.
+visualizer_output_name = "ncmpcpp visualization FIFO"
+# Interval (s) between syncing visualizer and audio outputs.
+# 30 seconds seems to be optimal.
+visualizer_sync_interval = "30"
+#  Visualizer type ("spectrum" requires ncmpcpp with fftw support).
+visualizer_type = "spectrum"
+# Visualizer's look.
+# Should be 2 characters long: the first is for wave, the second for spectrum.
+visualizer_look = "◾◾"
+
+# }}}
+# {{{ Colors
+
+colors_enabled = "yes"
+
+# }}}
+# {{{ Misc.
+
+# Show time remaining to end of playlist.
+playlist_show_remaining_time = "yes"
+# Use shortened units' names for total/remaining playlist time.
+playlist_shorten_total_times = "yes"
+# No separators between albums (it's ugly as hell).
+playlist_separate_albums     = "no"
+
+# Use "alternative" as the default user interface.
+user_interface = "alternative"
+# Use "columns" as default display mode.
+playlist_display_mode        = "columns"
+playlist_editor_display_mode = "columns"
+browser_display_mode         = "columns"
+search_engine_display_mode   = "columns"
+
+# Increment seek time by one each second of seeking.
+incremental_seeking = "yes"
+# Base seek time to begin with.
+seek_time           = "1"
+
+# Look of the progressbar (a 3rd character can be used for the "empty" part).
+progressbar_look = "=>"
+
+# Switch lyrics at song's change to currently playing one's.
+follow_now_playing_lyrics = "yes"
+
+# Screen that has to be displayed at start.
+startup_screen = "browser"
+
+# Don't ask confirmation for clearing the playlist.
+ask_before_clearing_playlists = "no"
+
+# Use format hh:mm:ss for the clock.
+clock_display_seconds  = "yes"
+# Display volume level in statusbar.
+display_volume_level   = "yes"
+# Display bitrate of currently playing song in statusbar.
+display_bitrate        = "yes"
+# Display elapsed time of currently playing song in statusbar.
+display_remaining_time = "no"
+
+# Disable the mouse.
+mouse_support = "no"
+
+# Override current window title with its own one.
+enable_window_title = "yes"
+
+# Do not allow ncmpcpp to delete directories from the browser screen.
+allow_for_physical_item_deletion = "no"
+
+# Path to external editor used to edit lyrics.
+external_editor    = "vim"
+use_console_editor = "yes"
+
+# }}}

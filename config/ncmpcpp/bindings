@@ -1,0 +1,54 @@
+def_key "+"
+  volume_up
+
+def_key "-"
+  volume_down
+
+def_key "="
+  show_clock
+
+def_key "@"
+  show_server_info
+
+def_key "right"
+  seek_forward
+
+def_key "left"
+  seek_backward
+
+def_key "c"
+  clear_playlist
+
+def_key "c"
+  clear_main_playlist
+
+def_key "d"
+  delete_playlist_items
+
+def_key "e"
+  edit_lyrics
+
+def_key "i"
+  show_song_info
+
+def_key "l"
+  show_lyrics
+
+def_key "q"
+  quit
+
+def_key "r"
+  toggle_repeat
+
+def_key "u"
+  update_database
+
+def_key "z"
+  toggle_random
+
+def_key "Z"
+  shuffle
+
+# This one was quite annoying…
+def_key "ctrl_l"
+  dummy
