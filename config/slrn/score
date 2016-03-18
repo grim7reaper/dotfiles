@@ -1,0 +1,8 @@
+% {{{ Spam
+
+% Subjects that contain only uppercase characters.
+Score: -9999
+    ~Subject: \c[a-z]
+
+% }}}
+% vim: set foldmethod=marker:

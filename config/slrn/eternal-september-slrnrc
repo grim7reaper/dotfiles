@@ -1,0 +1,122 @@
+% {{{ Character set/MIME support
+
+% Character set used for this configuration file.
+charset config   "utf-8"
+% Character set used for the display or terminal.
+charset display  "utf-8"
+% Character set used for outgoing articles.
+charset outgoing "utf-8"
+
+% }}}
+% {{{ Identity
+
+% The "From:" header is generated from the following three variables.
+set username "grim7reaper"
+set hostname "ether.invalid"
+set realname "Sylvain Laperche"
+% "From" is not a valid email address in my case, so set "Reply-To" properly.
+set replyto  "sylvain.laperche@gmail.com"
+
+% Don't use signature file.
+set signature ""
+
+% }}}
+% {{{ Server settings
+
+% Server to use.
+nnrpaccess news.eternal-september.org grim7reaper ""
+
+% Use builtin NNTP support to post articles.
+post_object "nntp"
+
+% Disable local Message-ID generation, let the server do it.
+set generate_message_id 0
+
+% Read the active file from the server when starting.
+set read_active 1
+
+% }}}
+% {{{ External programs
+
+% Editor to use (use Vim for all: mail, post and score file).
+% %s is the file name and %d is the line where the cursor should be placed.
+set editor_command "vim -c %d '%s'"
+
+% Aborts posting or email operations if I didn't modify the article.
+set abort_unmodified_edits 1
+
+% Web browser to use.
+set Xbrowser "firefox '%s' &"
+set non_Xbrowser "w3m '%s'"
+
+% }}}
+% {{{ Directory/files
+
+% NOTE
+% All path in this section are relative to HOME unless they start with a '/'.
+
+% Path to the file to which every article I post should be appended.
+set save_posts         ".local/share/News/my_posts"
+% Path to the file to which every reply I send by email should be appended.
+set save_replies       ".local/share/News/my_replies"
+% Path to the file where my article will be saved if posting failed.
+set failed_posts_file  ".local/share/News/failed_posts"
+% Path to the score file.
+set scorefile          ".config/slrn/score"
+% Name of directory where decoded files are placed.
+set decode_directory   ".local/share/News"
+% Path to the directory where saved articles are placed.
+set save_directory     ".local/share/News"
+% Path to the directory where articles I want to postpone are saved.
+set postpone_directory ".local/share/News/postponed"
+
+% Put temporary files for postings, followups and replies in the TMP
+set use_tmpdir 1
+
+% }}}
+% {{{ Attribution lines/custom headers
+
+% Message to prefix to each followup, where:
+set followup_string "%D: %r <%f>:"
+% Same, but for email reply
+set reply_string    "%D: %r <%f>:"
+
+% }}}
+% {{{ Header overview preferences
+
+% Sort by thread, then sort by date with most recent first.
+set sorting_method 9
+% Format in which the article headers are presented, where:
+header_display_format 0 "%F%B%-5S [%15r]:%t%120s %-19g[%17d]"
+
+% }}}
+% {{{ Article pager preferences.
+
+% Headers displayed by default.
+visible_headers "From:,Subject:,Newsgroups:,Followup-To:,Reply-To:,Message-Id:"
+
+% }}}
+% {{{ Display/color settings
+
+% Don't limit yourself to simple ASCII characters to draw the thread tree.
+set simulate_graphic_chars 0
+
+% Disable mouse support.
+set mouse 0
+
+% Scroll one line at a time.
+set scroll_by_page 0
+
+% Both scores and subjects are colored by score.
+set color_by_score 3
+
+% Highlight the subjects of unread articles.
+set highlight_unread_subjects 1
+% Highlight URLs.
+set highlight_urls 1
+
+% Please, no…
+set use_blink 0
+
+% }}}
+% vim:ft=slang
