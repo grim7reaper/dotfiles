@@ -1,0 +1,128 @@
+# {{{ XDG-compliance
+
+alias abcde="abcde -c $XDG_CONFIG_HOME/abcde/abcde.conf"
+alias msmtp="msmtp --file=$XDG_CONFIG_HOME/msmtp/msmtprc"
+alias mutt="mutt -F $XDG_CONFIG_HOME/mutt/mutt_default -y"
+alias ncmpcpp="ncmpcpp --config $XDG_CONFIG_HOME/ncmpcpp/config --bindings $XDG_CONFIG_HOME/ncmpcpp/bindings"
+alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
+alias weechat="weechat --dir $XDG_DATA_HOME/weechat"
+alias wyrd="wyrd $XDG_DATA_HOME/remind/reminders.rem"
+alias xsel="xsel --logfile $XDG_DATA_HOME/xsel/log"
+
+# }}}
+# {{{ Pacman
+
+alias pac-dl='pacman -Sw'
+alias pac-linfo='pacman -Qi'
+alias pac-rinfo='pacman -Si'
+alias pac-ls='pacman -Ql'
+alias pac-lsall='pacman -Qqen'
+alias pac-modified="pacman -Qii | grep '^MODIFIED' | cut -f 2"
+alias pac-orphan='pacman -Qdt'
+alias pac-owner='pacman -Qo'
+alias pac-unlock='rm /var/lib/pacman/db.lck'
+alias pac-exp='pacman -D --asexp'
+alias pac-imp='pacman -D --asdep'
+alias pac-inst='pacman -S'
+alias pac-linst='pacman -U'
+
+# }}}
+# {{{ Usual aliases
+
+alias g='git'
+alias gg='git grep'
+alias n="slrn -h news.eternal-september.org -i $XDG_CONFIG_HOME/slrn/eternal-september-slrnrc -f $XDG_DATA_HOME/slrn/eternal-september-jnewsrc"
+alias t='tig'
+alias v='vim'
+alias rm='rm -I'
+alias mv='nocorrect mv -i'    # No spelling correction on mv.
+alias cp='nocorrect cp -i'    # No spelling correction on cp.
+alias mkdir='nocorrect mkdir' # No spelling correction on mkdir.
+alias grep='grep --color=auto'
+alias dl='wget'
+alias bc='bc --mathlib'
+alias ls='ls --color=auto --quoting-style=literal'
+alias ll='ls -lh'
+alias la='ls -A'
+alias lla="ls -lhA"
+alias am='alsamixer'
+alias del='trash-put'
+alias rm_sav='rm *.*~'
+alias rm_sav_hide='rm .*~'
+alias x='chmod u+x'
+alias Feh='feh -F'
+alias histop10="sed -e 's/sudo //' $HISTFILE |  cut -d' ' -f1 | sort | uniq -c | sort -rg | head -n 10"
+alias screencap="ffmpeg -f x11grab -r 25 -s 1366x768 -i :0.0 -vcodec libx264 -preset ultrafast -crf 0 screencap.mkv"
+alias mergepdf="gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=FULL.pdf"
+alias mountiso="fuseiso"
+alias umountiso="fusermount -u"
+
+# }}}
+# {{{ Development
+# {{{ Compiler
+# {{{ GCC
+
+C_FLAGS='\
+-std=c89 -Wall -Wextra -pedantic -Wdouble-promotion -Wformat=2 -Winit-self     \
+-Wmissing-include-dirs -Wswitch-default -Wfloat-equal -Wundef -Wshadow         \
+-Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wconversion      \
+-Wjump-misses-init -Wlogical-op -Wstrict-prototypes -Wold-style-definition     \
+-Wmissing-prototypes -Wredundant-decls -Wnested-externs -pipe                  \
+'
+C_FLAGS_DEBUG='-g3 -ggdb3 -Wpadded -Wpacked'
+C_FLAGS_RELEASE='-O3 -flto -march=native -DNDEBUG'
+alias gcc_debug="gcc $C_FLAGS $C_FLAGS_DEBUG"
+alias gcc_release="gcc $C_FLAGS $C_FLAGS_RELEASE"
+
+CXX_FLAGS='\
+-std=c++11 -Wall -Wextra -pedantic -Wdouble-promotion -Wformat=2 -Winit-self   \
+-Wmissing-include-dirs -Wswitch-default -Wsuggest-attribute=const              \
+-Wsuggest-attribute=noreturn -Wfloat-equal -Wundef -Wshadow -Wcast-qual        \
+-Wcast-align -Wwrite-strings -Wconversion -Wsign-conversion -Wuseless-cast     \
+-Wlogical-op -Wmissing-declarations -Wredundant-decls -Wnon-virtual-dtor       \
+-Wstrict-null-sentinel -Wold-style-cast -Woverloaded-virtual -pipe             \
+'
+CXX_FLAGS_DEBUG='-g3 -ggdb3 -Wpadded -Wpacked'
+CXX_FLAGS_RELEASE='-O3 -flto -march=native -DNDEBUG -Winline'
+alias g++_debug="g++ $CXX_FLAGS $CXX_FLAGS_DEBUG"
+alias g++_release="g++ $CXX_FLAGS $CXX_FLAGS_RELEASE"
+
+# }}}
+# {{{ Clang
+
+C_FLAGS='-std=c89 -pipe'
+C_FLAGS_DEBUG='-g -fno-limit-debug-info -Weverything -fsanitize=undefined -ftrapv'
+C_FLAGS_RELEASE='-O3 -flto -pedantic -Wall -Wextra -march=native -DNDEBUG'
+alias clang_debug="clang $C_FLAGS $C_FLAGS_DEBUG"
+alias clang_release="clang $C_FLAGS $C_FLAGS_RELEASE"
+
+CXX_FLAGS='-std=c++11 -pipe'
+CXX_FLAGS_DEBUG='-g -fno-limit-debug-info -Weverything -fsanitize=undefined -ftrapv'
+CXX_FLAGS_RELEASE='-O3 -flto -pedantic -Wall -Wextra -march=native -DNDEBUG'
+alias clang++_debug="clang++ $CXX_FLAGS $CXX_FLAGS_DEBUG"
+alias clang++_release="clang++ $CXX_FLAGS $CXX_FLAGS_RELEASE"
+
+# }}}
+# {{{ GHC
+
+alias ghc_debug='ghc --make -Wall'
+alias ghc_release='ghc --make -Wall -O2'
+
+# }}}
+# }}}
+# {{{ Valgrind
+# {{{ Memory check
+
+alias memory_check='valgrind --tool=memcheck --leak-check=full --leak-resolution=high --show-reachable=yes'
+
+# }}}
+# {{{ Profiling
+
+alias call_perf='valgrind  --tool=callgrind --dump-instr=yes --collect-jumps=yes --cache-sim=yes --branch-sim=yes'
+alias heap_perf='valgrind  --tool=massif --heap=yes --max-snapshots=200'
+alias cache_perf='valgrind --tool=cachegrind'
+
+# }}}
+# }}}
+# }}}
+# vim:ft=zsh:fdm=marker

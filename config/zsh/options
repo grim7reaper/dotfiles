@@ -1,0 +1,34 @@
+# {{{ Directories
+
+setopt auto_cd
+setopt autopushd       # Make cd push the old directory onto the stack.
+setopt pushdtohome     # Have pushd with no arguments act like `pushd $HOME'.
+setopt pushdignoredups # Don't push a directory if it is already in the stack.
+
+# }}}
+# {{{ History
+
+setopt inc_append_history   # Add new history lines to HISTFILE on the fly.
+setopt hist_ignore_all_dups # Don't add an entry if it already exists.
+setopt hist_reduce_blanks   # Remove useless blanks from entry before adding it.
+setopt histignorespace      # Don't log the command if it starts with a space.
+
+# }}}
+# {{{ Expansion and globbing
+
+setopt   extended_glob  # Enable extended expansion/globbing features.
+unsetopt nomatch        # Don't print an error if a pattern has no matches.
+
+# }}}
+# {{{ Input/Output
+
+setopt correct_all          # Try to correct the spelling of all arguments.
+setopt interactive_comments # Allow comments even in interactive shells.
+
+# }}}
+# {{{ ZLE
+
+unsetopt beep               # Don't beep on error in ZLE.
+
+# }}}
+# vim:ft=zsh:fdm=marker

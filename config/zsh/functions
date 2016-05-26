@@ -1,0 +1,146 @@
+# {{{ Help-like functions
+
+# Colored man pages (from Archlinux Wiki)
+# Source: https://wiki.archlinux.org/index.php/Man_Page#Colored_man_pages
+man()
+{
+    env LESS_TERMCAP_mb=$(printf "\e[1;31m")    \
+        LESS_TERMCAP_md=$(printf "\e[1;31m")    \
+        LESS_TERMCAP_me=$(printf "\e[0m")       \
+        LESS_TERMCAP_se=$(printf "\e[0m")       \
+        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m")       \
+        LESS_TERMCAP_us=$(printf "\e[1;32m")    \
+        man "$@"
+}
+
+# A man-like function for RFC.
+rfc()
+{
+    FILEPATH="$HOME/.local/share/rfc/rfc$1.txt.gz"
+    if [ -f "$FILEPATH" ]
+    then
+        vim -c 'set filetype=rfc' "$FILEPATH"
+    else
+        echo "RFC $1 not found" 1>&2
+    fi
+}
+
+# }}}
+# {{{ Prompt
+
+precmd() {
+    vcs_info
+    if [ -n "$vcs_info_msg_0_" ];
+    then
+        RPS1="%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
+    else
+        unset RPS1
+    fi
+}
+
+# Executed before each prompt.
+prompt-precmd()
+{
+    # Color the path according to the rights.
+    if [[ -O "$PWD" ]]
+    then
+        local path_color="${fg_bold[yellow]}"
+    elif [[ -w "$PWD" ]]
+    then
+        local path_color="${fg_bold[blue]}"
+    else
+        local path_color="${fg_bold[red]}"
+    fi
+    # Host color depends on the host.
+    case ${HOST%%.*} in
+        ether)    local host_color="${fg_bold[green]}"  ;;
+        fadrienn) local host_color="${fg_bold[yellow]}" ;;
+        mani)     local host_color="${fg_bold[blue]}"   ;;
+        *)        local host_color="${fg_bold[default]}";;
+    esac
+    # If current user is root, display username in red.
+    local user_color="${fg_bold[red]}"
+    # Build the prompt.
+    local user="%{${user_color}%}%n"
+    local   at="%{${fg_no_bold[white]}%}@"
+    local host="%{${host_color}%}%m"
+    local  cwd="%{${path_color}%}%32<...<%~%{${fg_no_bold[white]}%}"
+    local sign="%(!.%{${fg_bold[red]}%}.%{${fg_no_bold[white]}%})%#"
+    PS1="[${user}${at}${host} ${cwd}] ${sign}%{${reset_color}%} "
+}
+precmd_functions+=(prompt-precmd)
+
+# }}}
+# {{{ Archives management
+
+# Create archives or compress files.
+# Usage: pack filename
+# Example: use `pack foo.tar.gz` to pack the directory `foo`.
+# Example: use `pack foo.txt.gz` to pack the file `foo.txt`.
+pack()
+{
+    case "$"1 in
+        *.tar.gz)  tar cvzf "$1" "${1%.tar.gz}"  ;;
+        *.tar.bz2) tar cvjf "$1" "${1%.tar.bz2}" ;;
+        *.tar.xz)  tar cvJf "$1" "${1%.tar.xz}"  ;;
+        *.tar.Z)   tar cvZf "$1" "${1%.tar.Z}"   ;;
+        *.tar)     tar cvf  "$1" "${1%.tar}"     ;;
+        *.tgz)     tar cvzf "$1" "${1%.tgz}"     ;;
+        *.zip)     zip -r   "$1" "${1%.zip}"     ;;
+        *.gz)      gzip          "${1%.gz}"      ;;
+        *.bz2)     bzip2         "${1%.bz2}"     ;;
+        *.xz)      xz            "${1%.xz}"      ;;
+        *.rar)     rar a         "${1%.rar}"     ;;
+        *.Z)       compress      "${1%.Z}"       ;;
+        *.7z)      7z a          "${1%.7z}"      ;;
+        *.lzo)     lzop -v       "${1%.7z}"      ;;
+        *.lzma)    lzma -v       "${1%.lzma}"    ;;
+        *)         echo "'$1' cannot be archived via pack()" ;;
+    esac
+}
+
+# Extract archives or uncompress files.
+# Usage: unpack filename
+# Example: use `unpack foo.tar.gz` to unpack the directory `foo.tar.gz`.
+# Example: use `unpack foo.txt.gz` to unpack the file `foo.txt.gz`.
+unpack()
+{
+    if [ -f "$"1 ] ; then
+        case "$"1 in
+            *.tar.gz)  tar xvzf   "$1" ;;
+            *.tar.bz2) tar xvjf   "$1" ;;
+            *.tar.xz)  tar xvJf   "$1" ;;
+            *.tar)     tar xvf    "$1" ;;
+            *.tgz)     tar xvzf   "$1" ;;
+            *.zip)     unzip      "$1" ;;
+            *.gz)      gunzip     "$1" ;;
+            *.bz2)     bunzip2    "$1" ;;
+            *.xz)      unxz       "$1" ;;
+            *.rar)     unrar x    "$1" ;;
+            *.Z)       uncompress "$1" ;;
+            *.7z)      7z x       "$1" ;;
+            *)         echo "'$1' cannot be extracted via unpack()" ;;
+        esac
+     else
+         echo "'$1' is not a valid archive file"
+     fi
+}
+
+# }}}
+# {{{ VCS hook
+
+# Show count of stashed changes
+function +vi-git-stash()
+{
+    local -a stashes
+
+    if [[ -s ${hook_com[base]}/.git/refs/stash ]]
+    then
+        stashes=$(git stash list 2>/dev/null | wc -l)
+        hook_com[misc]+=" (${stashes} stashed)"
+    fi
+}
+
+# }}}
+# vim:ft=zsh:fdm=marker
