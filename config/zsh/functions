@@ -96,6 +96,10 @@ pack()
         *.7z)      7z a          "${1%.7z}"      ;;
         *.lzo)     lzop -v       "${1%.7z}"      ;;
         *.lzma)    lzma -v       "${1%.lzma}"    ;;
+        *.cb7)     7z a          "${1%.cb7}"      ;;
+        *.cbr)     rar a         "${1%.cbr}"     ;;
+        *.cbt)     tar cvf  "$1" "${1%.cbt}"     ;;
+        *.cbz)     zip -r   "$1" "${1%.cbz}"     ;;
         *)         echo "'$1' cannot be archived via pack()" ;;
     esac
 }
@@ -120,6 +124,10 @@ unpack()
             *.rar)     unrar x    "$1" ;;
             *.Z)       uncompress "$1" ;;
             *.7z)      7z x       "$1" ;;
+            *.cb7)     7z x       "$1" ;;
+            *.cbr)     unrar x    "$1" ;;
+            *.cbt)     tar xvf    "$1" ;;
+            *.cbz)     unzip      "$1" ;;
             *)         echo "'$1' cannot be extracted via unpack()" ;;
         esac
      else
