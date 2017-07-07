@@ -38,7 +38,7 @@ subfont-encoding=unicode    # Use Unicode as font encoding.
 # }}}
 # {{{ Audio output drivers
 
-ao=alsa     # Priority list of audio output drivers to use.
+ao=pulse,alsa     # Priority list of audio output drivers to use.
 
 # }}}
 # {{{ Video output
