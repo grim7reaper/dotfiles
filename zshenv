@@ -20,14 +20,20 @@ export DVDCSS_CACHE="$XDG_CACHE_HOME/dvdcss"
 # }}}
 # {{{ PATH
 
-# Add local binary
-PATH=$PATH:$HOME/.local/bin/
-# Add rubygem
-PATH=$PATH:$HOME/.gem/ruby/2.3.0/bin/
-# Add Haskell package
-PATH=$PATH:$HOME/.cabal/bin/
-# Add RVM
-PATH=$PATH:$HOME/.rvm/bin
+OPT_PATHS=(
+    "$HOME/.local/bin"              # Local binaries
+    "$HOME/.gem/ruby/2.3.0/bin"     # Ruby gems
+    "$HOME/.cabal/bin"              # Haskell packages
+    "$HOME/.cargo/bin"              # Rust packages
+    "$HOME/.rvm/bin"                # RVM
+)
+
+for path in $OPT_PATHS; do
+    if [ -d "$path" ] ; then
+        PATH=$PATH:$path
+    fi
+done
+
 # Load RVM into a shell session *as a function*
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
