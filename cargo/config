@@ -1,0 +1,14 @@
+[cargo-new]
+# Name to place in the `authors` section of a new Cargo.toml
+name = "Sylvain Laperche"
+# Email to place in the `authors` section of a new Cargo.toml
+email = "sylvain.laperche@gmail.com"
+
+# Do nor create Git repository with `cargo new`.
+vcs = "none"
+
+[alias]
+b  = "build"
+t  = "test"
+r  = "run"
+rr = "run --release"
