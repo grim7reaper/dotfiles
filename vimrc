@@ -86,9 +86,6 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 " 72 characters per line for emails.
 autocmd BufRead /tmp/mutt* set textwidth=72
 
-autocmd InsertEnter * hi StatusLine ctermbg=cyan   ctermfg=darkgrey
-autocmd InsertLeave * hi StatusLine ctermbg=yellow ctermfg=darkgrey
-
 " Restore cursor position.
 " From ':h last-position-jump' but modified to handle files with only one line.
 autocmd BufReadPost *
@@ -112,10 +109,6 @@ map <F12> mcHmh:%s/\s\+$//ge<cr>'hzt`c
 " Highlight trailing whitespaces and spaces before a tab.
 highlight ExtraWhitespace ctermbg=red
 match ExtraWhitespace /\s\+$\| \+\ze\t/
-
-" Statusline colors.
-highlight StatusLine   ctermbg=yellow ctermfg=darkgrey
-highlight StatusLineNC ctermbg=yellow ctermfg=black
 
 " }}}
 " {{{ Statusline
