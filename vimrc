@@ -67,7 +67,7 @@ set guioptions-=L  " Remove left-hand scroll bar.
 " }}}
 
 set background=dark " Try to use colors that look good on a dark background.
-colorscheme elflord " Load the colorscheme 'elflord'
+colorscheme delek   " Load the colorscheme.
 syntax on           " Turn on color syntax highlighting.
 
 " }}}
