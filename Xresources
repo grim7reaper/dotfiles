@@ -3,7 +3,8 @@
 URxvt.termName: rxvt-unicode-256color
 URxvt.geometry: 200x50
 URxvt.saveLines: 10000
-URxvt.font: xft:Inconsolata:size=8.5,xft:WenQuanYi Micro Hei Mono:size=8.5
+URxvt.font: xft:Inconsolata:size=8.5:antialias=true,xft:WenQuanYi Micro Hei Mono:size=8.5
+
 URxvt.background:  black
 URxvt.foreground:  white
 URxvt.cursorColor: white
