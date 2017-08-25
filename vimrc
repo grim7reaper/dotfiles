@@ -143,6 +143,12 @@ let noweb_language  = 'r'
 let noweb_fold_code = 1
 
 " }}}
+" {{{ rust.vim
+
+" Disable `rust_recommended_style`, otherwise `textwidth` is set to 99…
+let g:rust_recommended_style = 0
+
+" }}}
 " {{{ TOhtml settings.
 
 let use_xhtml=1               " Generate XHTML 1.0 instead of HTML 4.01
