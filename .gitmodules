@@ -58,3 +58,6 @@
 [submodule "vim/bundle/vim-haskellConceal"]
 	path = vim/bundle/vim-haskellConceal
 	url = https://github.com/Twinside/vim-haskellConceal
+[submodule "vim/bundle/vim-endwise"]
+	path = vim/bundle/vim-endwise
+	url = https://github.com/tpope/vim-endwise
