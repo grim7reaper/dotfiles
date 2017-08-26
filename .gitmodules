@@ -55,3 +55,6 @@
 [submodule "vim/bundle/toml-syntax"]
 	path = vim/bundle/toml-syntax
 	url = https://github.com/cespare/vim-toml.git
+[submodule "vim/bundle/vim-haskellConceal"]
+	path = vim/bundle/vim-haskellConceal
+	url = https://github.com/Twinside/vim-haskellConceal
