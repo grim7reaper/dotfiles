@@ -129,6 +129,12 @@ set statusline+=%-10.(%l,%v-%c%)\ %<%P       " Offset
 
 let g:load_doxygen_syntax=1 " Turn on Doxygen syntax highlighting.
 
+" {{{ armasm
+
+let asmsyntax='armasm'
+let filetype_inc='armasm'
+
+" }}}
 " {{{ noweb
 
 let noweb_backend   = 'tex'
