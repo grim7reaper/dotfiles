@@ -52,3 +52,6 @@
 [submodule "vim/bundle/DrawIt"]
 	path = vim/bundle/DrawIt
 	url = https://github.com/vim-scripts/DrawIt.git
+[submodule "vim/bundle/toml-syntax"]
+	path = vim/bundle/toml-syntax
+	url = https://github.com/cespare/vim-toml.git
