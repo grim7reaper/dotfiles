@@ -98,8 +98,8 @@ autocmd BufReadPost *
 
 " Clear the search buffer when hitting return.
 nnoremap <CR> :nohlsearch<cr>
-" Use F7 to toggle the `paste` option.
-set pastetoggle=<F7>
+" Use F8 to toggle the `paste` option.
+set pastetoggle=<F8>
 " Remove trailing spaces and stay in the same position.
 map <F12> mcHmh:%s/\s\+$//ge<cr>'hzt`c
 
