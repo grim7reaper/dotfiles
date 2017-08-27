@@ -1,0 +1,47 @@
+# {{{ Custom fields
+
+# Declare a few custom fields.
+field im      = "Messagerie", string
+field notes1  = "Notes",      string
+field notes2  = "Notes",      string
+field notes3  = "Notes",      string
+field notes4  = "Notes",      string
+field notes5  = "Notes",      string
+field mobile2 = "Portable",   string
+
+# }}}
+# {{{ Views
+
+view Contact   = name, email
+view Adresse   = address, city, state, zip, country
+view Téléphone = phone, workphone, mobile, mobile2
+view Autre     = url, im, anniversary
+view Notes     = notes1, notes2, notes3, notes4, notes5
+
+# }}}
+# {{{ Options
+
+# Preserve any unknown field while loading an abook database.
+set preserve_fields=all
+# Automatically save database on exit.
+set autosave=true
+# Format of entries lines in list.
+set index_format=" {name:22} {email:40} {phone:17|workphone|mobile}"
+# Don't show all email addresses for a contact in the list view.
+set show_all_emails=false
+# Command used to view a contact's URL.
+set www_command=w3m
+# Command used to print the addressbook.
+set print_command=lpr
+# Command used to start mutt.
+set mutt_command=mutt
+# Return all email addresses matching the mutt query.
+set mutt_return_all_emails=true
+# Don't limit the character set to ASCII, we live in an international world!
+set use_ascii_only=false
+# Disable navigation via the mouse.
+set use_mouse=false
+# I have horrible taste for colors…
+set use_colors=false
+
+# }}}
