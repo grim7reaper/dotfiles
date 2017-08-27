@@ -43,9 +43,6 @@
 [submodule "vim/bundle/vimoutliner"]
 	path = vim/bundle/vimoutliner
 	url = https://github.com/vimoutliner/vimoutliner.git
-[submodule "vim/bundle/YouCompleteMe"]
-	path = vim/bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe.git
 [submodule "vim/bundle/UltiSnips"]
 	path = vim/bundle/UltiSnips
 	url = https://github.com/SirVer/ultisnips.git
@@ -61,3 +58,6 @@
 [submodule "vim/bundle/vim-endwise"]
 	path = vim/bundle/vim-endwise
 	url = https://github.com/tpope/vim-endwise
+[submodule "vim/bundle/YouCompleteMe"]
+	path = vim/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe
