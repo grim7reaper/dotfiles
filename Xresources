@@ -1,22 +1,46 @@
 ! {{{ URxvt
 
-URxvt.termName: rxvt-unicode-256color
-URxvt.geometry: 200x50
-URxvt.saveLines: 10000
-URxvt.font: xft:Inconsolata:size=8.5:antialias=true,xft:WenQuanYi Micro Hei Mono:size=8.5
+URxvt.termName:   rxvt-unicode-256color
 
-URxvt.background:  black
-URxvt.foreground:  white
-URxvt.cursorColor: white
+URxvt.geometry:   200x50
+URxvt.background: Black
+URxvt.foreground: White
+
+URxvt.font: xft:Inconsolata:size=8.5:antialias=true,\
+            xft:WenQuanYi Micro Hei Mono:size=8.5:antialias=true,\
+            xft:Code2000:antialias=true,\
+            xft:Symbola:antialias=true
+
+! Save some screen real estate.
+URxvt.scrollBar: false
+! I use tmux for that.
+URxvt.saveLines: 0
+! When printing lots of lines, scroll by a whole screen instead of line by line.
+URxvt.jumpScroll: True
+
+! Set the urgency hint for the WM on receipt of a bell character.
+URxvt.urgentOnBell: True
+! Flash the screen on receipt of a bell character.
+URxvt.visualBell:   True
+
+! Enable ISO 14755 support.
+URxvt.iso14755:    True
+URxvt.iso14755_52: True
+
+! Use Alt as Meta key.
+URxvt.modifier: alt
 
 ! {{{ Extensions
 
 URxvt.perl-lib : .local/share/urxvt/perl
-URxvt.perl-ext-common: default,tabbed,selection-to-clipboard,keyboard-select,url-select
+URxvt.perl-ext-common: default,tabbed,selection-to-clipboard,\
+                       keyboard-select,url-select,url-picker
 
 URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.keysym.M-f: perl:url-picker
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.url-select.launcher: firefox
+URxvt.url-picker.launcher: firefox
 
 ! }}}
 ! }}}
