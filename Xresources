@@ -20,8 +20,6 @@ URxvt.jumpScroll: True
 
 ! Set the urgency hint for the WM on receipt of a bell character.
 URxvt.urgentOnBell: True
-! Flash the screen on receipt of a bell character.
-URxvt.visualBell:   True
 
 ! Enable ISO 14755 support.
 URxvt.iso14755:    True
