@@ -57,6 +57,8 @@ set foldmethod=marker " Use marker for folding.
 
 set virtualedit=block "The cursor can be positioned anywhere in block mode.
 
+set nojoinspaces      " Typography: only one space after '.', '?' and '!'.
+
 " {{{ GUI
 
 set guioptions-=m  " Remove menu bar.
