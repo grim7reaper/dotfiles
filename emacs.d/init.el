@@ -94,3 +94,17 @@
 )
 
 ;;}}}
+;;{{{ Packages management
+
+(require 'package)
+
+; We explicitly call `package-initialize`: no need to redo it later.
+(setq package-enable-at-startup nil)
+
+(setq package-archives
+      '(("gnu"   . "https://elpa.gnu.org/packages/")
+        ("melpa" . "https://melpa.org/packages/")))
+
+(package-initialize)
+
+;;}}}
