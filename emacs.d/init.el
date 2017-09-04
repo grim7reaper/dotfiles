@@ -108,3 +108,16 @@
 (package-initialize)
 
 ;;}}}
+;;{{{ use-package
+
+; Bootstrap `use-package` (it is used to install/configure the other packages).
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+
+(setq use-package-verbose       t) ; To always have timing information.
+(setq use-package-always-ensure t) ; Always install declared packages.
+
+; Explicit require needed because I modified `use-package-verbose`.
+(require 'use-package)
+
+;;}}}
