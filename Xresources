@@ -31,8 +31,7 @@ URxvt.modifier: alt
 ! {{{ Extensions
 
 URxvt.perl-lib : .local/share/urxvt/perl
-URxvt.perl-ext-common: default,tabbed,selection-to-clipboard,\
-                       keyboard-select,url-select,url-picker
+URxvt.perl-ext-common: default,tabbed,selection-to-clipboard,keyboard-select,url-select,url-picker
 
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.keysym.M-f: perl:url-picker
