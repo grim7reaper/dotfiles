@@ -121,3 +121,10 @@
 (require 'use-package)
 
 ;;}}}
+;;{{{ Try
+
+; Try packages without installing them.
+(use-package try
+  :ensure t)
+
+;;}}}
