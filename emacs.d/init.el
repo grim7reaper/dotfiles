@@ -74,8 +74,6 @@
 ;;}}}
 ;;{{{ User interface
 
-; (load-theme 'solarized t)
-
 (setq visible-bell           t)   ; Use visible bell, not the audible one.
 (setq inhibit-startup-screen t)   ; No splash screen.
 (menu-bar-mode -1)                ; Disable menu bar.
