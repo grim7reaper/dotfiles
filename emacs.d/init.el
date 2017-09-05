@@ -126,3 +126,11 @@
   :ensure t)
 
 ;;}}}
+;;{{{ which-key
+
+; Displays available keybindings in popup (good for discoverability).
+(use-package which-key
+  :config
+  (which-key-mode))
+
+;;}}}
