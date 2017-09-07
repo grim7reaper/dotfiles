@@ -92,6 +92,19 @@
 )
 
 ;;}}}
+;;{{{ Interactively DO things
+
+(require 'ido)
+
+(setq ido-everywhere            t        ; Use it for buffer and file selection.
+      ido-enable-flex-matching  t        ; Flexible matching is the best!
+      ido-ignore-extensions     t        ; Use `completion-ignored-extensions`.
+      ido-use-filename-at-point 'guess   ; Enable ffap for the files.
+      ido-use-url-at-point      'guess   ; Enable ffap for the URLs.
+      ido-create-new-buffer     'always) ; Don't ask before creating new buffer.
+(ido-mode 1)
+
+;;}}}
 ;;{{{ Packages management
 
 (require 'package)
