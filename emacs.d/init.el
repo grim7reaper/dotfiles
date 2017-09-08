@@ -92,6 +92,19 @@
 )
 
 ;;}}}
+;;{{{ ibuffer
+
+; Use ibuffer instead of list-buffers.
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+; Don't ask for confirmation to delete unmodified buffers.
+(setq ibuffer-expert t)
+
+(add-hook 'ibuffer-mode-hook
+          '(lambda ()
+             (ibuffer-auto-mode 1))) ; Keeps the buffer list up to date.
+
+;;}}}
 ;;{{{ Interactively DO things
 
 (require 'ido)
