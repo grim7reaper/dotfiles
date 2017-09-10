@@ -160,3 +160,12 @@
   (which-key-mode))
 
 ;;}}}
+;;{{{ Fill-Column-Indicator
+
+; Display a ruler to represent the fill column.
+(use-package fill-column-indicator
+  :config
+  (add-hook 'text-mode-hook 'fci-mode)
+  (add-hook 'prog-mode-hook 'fci-mode))
+
+;;}}}
