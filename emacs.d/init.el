@@ -67,9 +67,11 @@
 
 ; Misc.
 (setq-default indent-tabs-mode  nil)    ; Use spaces for indentation.
+(setq-default tab-width         4)      ; Indent with 4 spaces by default.
 (setq-default fill-column       80)     ; Maximum width of a line.
 
 (setq sentence-end-double-space nil)    ; Sentences end with a single space!
+(setq nobreak-char-display      t)      ; Highlight no-break space & cie.
 
 ;;}}}
 ;;{{{ User interface
@@ -103,6 +105,13 @@
 (add-hook 'ibuffer-mode-hook
           '(lambda ()
              (ibuffer-auto-mode 1))) ; Keeps the buffer list up to date.
+
+;;}}}
+;;{{{ Whitespace
+
+; Highlight tabs and trailing spaces.
+(setq whitespace-style '(face trailing tabs tab-mark))
+(global-whitespace-mode 1)
 
 ;;}}}
 ;;{{{ Interactively DO things
