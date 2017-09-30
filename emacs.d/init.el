@@ -178,3 +178,14 @@
   (add-hook 'prog-mode-hook 'fci-mode))
 
 ;;}}}
+;;{{{ Outshine
+
+; Use outline as replacement for Vim's folds based on markers.
+(use-package outshine
+  :config
+  (setq outshine-startup-folded-p   t)
+  (setq outshine-use-speed-commands t)
+  (add-hook 'outline-minor-mode-hook 'outshine-hook-function)
+  (add-hook 'prog-mode-hook 'outline-minor-mode))
+
+;;}}}
