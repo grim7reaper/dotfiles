@@ -1,4 +1,4 @@
-;;{{{ Encoding
+;; * Encoding
 
 ; Set up multilingual environment to use UTF-8.
 (set-language-environment "UTF-8")
@@ -7,8 +7,7 @@
 (prefer-coding-system       'utf-8)
 (set-default-coding-systems 'utf-8)
 
-;;}}}
-;;{{{ Paths
+;; * Paths
 
 ; Emacs's home :)
 (setq user-emacs-directory "~/.emacs.d/")
@@ -38,16 +37,13 @@
 (setq custom-file (prepend-emacs-home "custom.el"))
 (load custom-file t)
 
-;;}}}
-;;{{{ Identity
+;; * Identity
 
 (setq user-full-name    "Sylvain Laperche"
       user-mail-address "sylvain.laperche@gmail.com")
 
-;;}}}
-;;{{{ General settings
-
-; Backups
+;; * General settings
+;; ** Backups
 (setq make-backup-files    t  ; Do backup.
       backup-by-copying    t  ; Copying has less side-effects than renaming.
       version-control      t  ; Keep a series of numbered backup files.
@@ -56,7 +52,7 @@
       delete-old-versions  t  ; Don't ask to delete excess backup versions.
       vc-make-backup-files t) ; I don't commit on every save so it's useful.
 
-; History
+;; ** History
 (setq history-delete-duplicates        t)
 (setq savehist-save-minibuffer-history 1)
 (setq savehist-additional-variables
@@ -65,7 +61,7 @@
         regexp-search-ring))
 (savehist-mode 1)
 
-; Misc.
+;; ** Misc.
 (setq-default indent-tabs-mode  nil)    ; Use spaces for indentation.
 (setq-default tab-width         4)      ; Indent with 4 spaces by default.
 (setq-default fill-column       80)     ; Maximum width of a line.
@@ -73,8 +69,7 @@
 (setq sentence-end-double-space nil)    ; Sentences end with a single space!
 (setq nobreak-char-display      t)      ; Highlight no-break space & cie.
 
-;;}}}
-;;{{{ User interface
+;; * User interface
 
 (setq visible-bell           t)   ; Use visible bell, not the audible one.
 (setq inhibit-startup-screen t)   ; No splash screen.
@@ -93,8 +88,7 @@
     (scroll-bar-mode -1))
 )
 
-;;}}}
-;;{{{ ibuffer
+;; * ibuffer
 
 ; Use ibuffer instead of list-buffers.
 (global-set-key (kbd "C-x C-b") 'ibuffer)
@@ -106,15 +100,16 @@
           '(lambda ()
              (ibuffer-auto-mode 1))) ; Keeps the buffer list up to date.
 
-;;}}}
-;;{{{ Whitespace
+; TODO: use ibuffer-saved-filter-groups (with ibuffer-show-empty-filter-groups)?
+; Source: http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
+
+;; * Whitespace
 
 ; Highlight tabs and trailing spaces.
 (setq whitespace-style '(face trailing tabs tab-mark))
 (global-whitespace-mode 1)
 
-;;}}}
-;;{{{ Interactively DO things
+;; * Interactively DO things
 
 (require 'ido)
 
@@ -126,8 +121,7 @@
       ido-create-new-buffer     'always) ; Don't ask before creating new buffer.
 (ido-mode 1)
 
-;;}}}
-;;{{{ Packages management
+;; * Packages management
 
 (require 'package)
 
@@ -140,8 +134,7 @@
 
 (package-initialize)
 
-;;}}}
-;;{{{ use-package
+;; ** use-package
 
 ; Bootstrap `use-package` (it is used to install/configure the other packages).
 (unless (package-installed-p 'use-package)
@@ -153,23 +146,20 @@
 ; Explicit require needed because I modified `use-package-verbose`.
 (require 'use-package)
 
-;;}}}
-;;{{{ Try
+;; ** Try
 
 ; Try packages without installing them.
 (use-package try
   :ensure t)
 
-;;}}}
-;;{{{ which-key
+;; ** which-key
 
 ; Displays available keybindings in popup (good for discoverability).
 (use-package which-key
   :config
   (which-key-mode))
 
-;;}}}
-;;{{{ Fill-Column-Indicator
+;; ** Fill-Column-Indicator
 
 ; Display a ruler to represent the fill column.
 (use-package fill-column-indicator
@@ -177,8 +167,7 @@
   (add-hook 'text-mode-hook 'fci-mode)
   (add-hook 'prog-mode-hook 'fci-mode))
 
-;;}}}
-;;{{{ Outshine
+;; ** Outshine
 
 ; Use outline as replacement for Vim's folds based on markers.
 (use-package outshine
@@ -187,5 +176,3 @@
   (setq outshine-use-speed-commands t)
   (add-hook 'outline-minor-mode-hook 'outshine-hook-function)
   (add-hook 'prog-mode-hook 'outline-minor-mode))
-
-;;}}}
