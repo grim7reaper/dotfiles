@@ -121,6 +121,35 @@
       ido-create-new-buffer     'always) ; Don't ask before creating new buffer.
 (ido-mode 1)
 
+;; * Org
+
+; Keep a consistent indentation for the second line of a description list.
+(setq org-list-description-max-indent 5)
+
+; Enable syntax highlighting for code blocks.
+(setq org-src-fontify-natively t)
+
+;; ** LaTeX
+
+(require 'ox-latex)
+
+;; *** Code highlighting
+
+; Use `minted` for code highlighting when exporting to LaTeX
+; XXX: this depends on `pygments` (http://pygments.org).
+
+; Export source code using the `minted` package.
+(setq org-latex-listings 'minted)
+
+; Use the `minted` package in every generared LaTeX files.
+(setq org-latex-packages-alist '(("" "minted")))
+
+; Commands to process a LaTeX file to a PDF file.
+(setq org-latex-pdf-process
+  '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+    "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+    "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+
 ;; * Packages management
 
 (require 'package)
