@@ -1,4 +1,4 @@
-(define-package "outshine" "20170904.1524" "outline with outshine outshines outline"
+(define-package "outshine" "20171005.955" "outline with outshine outshines outline"
   '((outorg "2.0")
     (cl-lib "0.5"))
   :url "http://github.com/alphapapa/outshine")

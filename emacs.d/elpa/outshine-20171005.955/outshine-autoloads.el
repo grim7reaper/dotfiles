@@ -3,8 +3,8 @@
 ;;; Code:
 (add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "outshine" "outshine.el" (22991 55775 21360
-;;;;;;  178000))
+;;;### (autoloads nil "outshine" "outshine.el" (23001 10199 7318
+;;;;;;  73000))
 ;;; Generated autoloads from outshine.el
 
 (autoload 'outshine-hook-function "outshine" "\
@@ -15,7 +15,7 @@ Add this function to outline-minor-mode-hook
 ;;;***
 
 ;;;### (autoloads nil nil ("outline-mode-easy-bindings.el" "outshine-org-cmds.el"
-;;;;;;  "outshine-pkg.el") (22991 55775 111360 448000))
+;;;;;;  "outshine-pkg.el") (23001 10199 93985 474000))
 
 ;;;***
 
