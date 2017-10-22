@@ -22,20 +22,17 @@ export DVDCSS_CACHE="$XDG_CACHE_HOME/dvdcss"
 
 OPT_PATHS=(
     "$HOME/.local/bin"              # Local binaries
-    "$HOME/.gem/ruby/2.3.0/bin"     # Ruby gems
+    "$HOME/.gem/ruby/2.4.0/bin"     # Ruby gems
     "$HOME/.cabal/bin"              # Haskell packages
     "$HOME/.cargo/bin"              # Rust packages
-    "$HOME/.rvm/bin"                # RVM
 )
 
-for path in $OPT_PATHS; do
-    if [ -d "$path" ] ; then
-        PATH=$PATH:$path
+for opt_path in $OPT_PATHS; do
+    if [ -d "$opt_path" ] ; then
+        PATH=$PATH:$opt_path
     fi
 done
-
-# Load RVM into a shell session *as a function*
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+export PATH
 
 # }}}
 # {{{ History
@@ -66,6 +63,8 @@ export WINEARCH=win32
 export _JAVA_AWT_WM_NONREPARENTING=1
 # For pushd
 export DIRSTACKSIZE=16
+
+export LS_COLORS='di=1;34:fi=0:ln=0;1;44:pi=40;33:so=01;35:bd=1;33:cd=1;33:or=5;1;31:mi=0:ex=1;32'
 
 # }}}
 # vim:fdm=marker:fdl=0

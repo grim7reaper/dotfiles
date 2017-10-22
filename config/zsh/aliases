@@ -2,7 +2,7 @@
 
 alias abcde="abcde -c $XDG_CONFIG_HOME/abcde/abcde.conf"
 alias msmtp="msmtp --file=$XDG_CONFIG_HOME/msmtp/msmtprc"
-alias mutt="mutt -F $XDG_CONFIG_HOME/mutt/mutt_default -y"
+alias mutt="mutt -F $XDG_CONFIG_HOME/mutt/muttrc -y"
 alias ncmpcpp="ncmpcpp --config $XDG_CONFIG_HOME/ncmpcpp/config --bindings $XDG_CONFIG_HOME/ncmpcpp/bindings"
 alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 alias weechat="weechat --dir $XDG_DATA_HOME/weechat"
@@ -42,10 +42,11 @@ alias grep='grep --color=auto'
 alias dl='wget'
 alias bc='bc --mathlib'
 alias ls='ls --color=auto --quoting-style=literal'
-alias ll='ls -lh'
-alias la='ls -A'
-alias lla="ls -lhA"
+alias ll='ls -Nlh'
+alias la='ls -NA'
+alias lla="ls -NlhA"
 alias am='alsamixer'
+alias pm='pulsemixer'
 alias del='trash-put'
 alias rm_sav='rm *.*~'
 alias rm_sav_hide='rm .*~'
@@ -53,7 +54,6 @@ alias x='chmod u+x'
 alias Feh='feh -F'
 alias histop10="sed -e 's/sudo //' $HISTFILE |  cut -d' ' -f1 | sort | uniq -c | sort -rg | head -n 10"
 alias screencap="ffmpeg -f x11grab -r 25 -s 1366x768 -i :0.0 -vcodec libx264 -preset ultrafast -crf 0 screencap.mkv"
-alias mergepdf="gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=FULL.pdf"
 alias mountiso="fuseiso"
 alias umountiso="fusermount -u"
 

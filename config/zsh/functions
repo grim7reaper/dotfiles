@@ -17,13 +17,19 @@ man()
 # A man-like function for RFC.
 rfc()
 {
-    FILEPATH="$HOME/.local/share/rfc/rfc$1.txt.gz"
+    FILEPATH="$HOME/.local/share/rfc/rfc$1.txt"
     if [ -f "$FILEPATH" ]
     then
         vim -c 'set filetype=rfc' "$FILEPATH"
     else
         echo "RFC $1 not found" 1>&2
     fi
+}
+
+# Update the RFCs cache.
+rfc-update()
+{
+    rsync -avz --delete ftp.rfc-editor.org::rfcs-text-only "$HOME/.local/share/rfc/"
 }
 
 # }}}

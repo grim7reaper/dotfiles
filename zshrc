@@ -79,6 +79,9 @@ bindkey -e
 
 # }}}
 
+# For gpg-agent (otherwise pinentry-tty doesn't works).
+export GPG_TTY=$(tty)
+
 source "$ZSH_HOME/options"
 source "$ZSH_HOME/aliases"
 source "$ZSH_HOME/functions"
