@@ -57,6 +57,10 @@ alias screencap="ffmpeg -f x11grab -r 25 -s 1366x768 -i :0.0 -vcodec libx264 -pr
 alias mountiso="fuseiso"
 alias umountiso="fusermount -u"
 
+# Otherwise fcitx doesn't works in Emacs…
+# See https://wiki.archlinux.org/index.php/fcitx#Emacs
+alias emacs='LC_CTYPE=zh_CN.UTF-8 emacs'
+
 # }}}
 # {{{ Development
 # {{{ Compiler
