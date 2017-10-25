@@ -46,6 +46,7 @@
     rem = remote --verbose
 
     addp    = add --patch
+    pushf   = push --force-with-lease
     track   = add --intent-to-add
     untrack = rm --cached
 
