@@ -1,0 +1,99 @@
+-- -*- mode: haskell -*-
+
+Config {
+--* Appearance
+
+    font            = "xft:Inconsolata:size=11:antialias=true",
+    additionalFonts = ["xft:Symbola:size=11:antialias=true"],
+    bgColor         = "black",
+    fgColor         = "white",
+    alpha           = 255,
+    position        = Top,
+    border          = NoBorder,
+
+--* Layout
+
+    sepChar  = "%",
+    alignSep = "}{",
+    template = "%StdinReader% }{ %dynnetwork% | %multicpu% | %memory% | %battery% | %mail% | %volume% | %date%"
+
+--* General behavior
+
+    lowerOnStart     = True,  -- Keep the bar behind all other windows.
+    hideOnStart      = False, -- Show the bar on start.
+    allDesktops      = True,  -- Show the bar on all desktops.
+    overrideRedirect = True,  -- Set the Override Redirect flag (Xlib).
+    pickBroadest     = False, -- Display on the first monitor (if more than one).
+    persistent       = True,  -- Fix the window's status.
+
+--* Commands
+
+    commands = [
+
+--** CPU
+
+        Run MultiCpu   [ "--template" , "<fn=1>🗲</fn> <autototal>"
+                       , "--Low"      , "10"    -- in %
+                       , "--High"     , "50"    -- in %
+                       , "--low"      , "darkgreen"
+                       , "--normal"   , "darkorange"
+                       , "--high"     , "darkred"
+                       , "--suffix"   , "True"
+                       , "--ppad"     , "3"
+        ] 10,
+
+--** RAM
+
+        Run Memory     [ "--template", "<fn=1>🗄</fn> <used>Mo"
+                       , "--Low"      , "2000"  -- in Mo (2 Go)
+                       , "--High"     , "6000"  -- in Mo (6 Go)
+                       , "--low"      , "darkgreen"
+                       , "--normal"   , "darkorange"
+                       , "--high"     , "darkred"
+        ] 10,
+
+--** Network
+
+        Run DynNetwork [ "--template" , "<fn=1>🌍</fn> <tx>/<rx>"
+                       , "--Low"      , "10000"    -- in B/s (10 kB/s)
+                       , "--High"     , "1000000"  -- in B/s (1  MB/s)
+                       , "--low"      , "darkred"
+                       , "--normal"   , "darkorange"
+                       , "--high"     , "darkgreen"
+                       , "--suffix"   , "True"
+                       , "--minwidth" , "7"
+        ] 10,
+
+--** Battery
+
+        Run Battery    [ "--template" , "<fn=1>🔋</fn> <acstatus>"
+                       , "--Low"      , "10"     -- in %
+                       , "--High"     , "80"     -- in %
+                       , "--low"      , "darkred"
+                       , "--normal"   , "darkorange"
+                       , "--high"     , "darkgreen"
+                       , "--"
+                       , "-o" , "<left>% (<timeleft>)"
+                       , "-O" , "<fc=#dAA520>Charging</fc>"
+                       , "-i" , "<fc=#006000>Charged</fc>"
+        ] 60,
+
+--** Mail
+
+        Run Mail [("<fn=1>📧</fn> ", "~/.local/share/Mails/INBOX")] "mail",
+
+--** Volume
+
+        Run Com "/bin/bash" ["-c", "~/.config/xmobar/get-volume.rb"] "volume" 10,
+
+--** Date
+
+        Run Date "%d/%m/%Y %H:%M:%S" "date" 10,
+
+--** stdin
+
+        Run StdinReader
+    ],
+}
+
+-- vim:ft=haskell
