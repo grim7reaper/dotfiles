@@ -205,3 +205,9 @@
   (setq outshine-use-speed-commands t)
   (add-hook 'outline-minor-mode-hook 'outshine-hook-function)
   (add-hook 'prog-mode-hook 'outline-minor-mode))
+
+;; ** Docker
+
+(use-package dockerfile-mode
+  :config
+  (setq dockerfile-use-sudo t))
