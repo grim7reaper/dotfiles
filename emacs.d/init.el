@@ -178,8 +178,7 @@
 ;; ** Try
 
 ; Try packages without installing them.
-(use-package try
-  :ensure t)
+(use-package try)
 
 ;; ** which-key
 
