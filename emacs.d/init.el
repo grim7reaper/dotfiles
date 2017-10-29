@@ -210,3 +210,10 @@
 (use-package dockerfile-mode
   :config
   (setq dockerfile-use-sudo t))
+
+;; ** Ledger
+
+(use-package ledger-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.ledger$" . ledger-mode))
+  (add-hook 'ledger-mode-hook 'outline-minor-mode))
