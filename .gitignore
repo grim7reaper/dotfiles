@@ -6,6 +6,10 @@ emacs.d/elpa/archives/
 emacs.d/history
 emacs.d/ido.last
 vim/.netrwhist
+xmonad/xmonad-x86_64-linux
+xmonad/xmonad.errors
 *.pyc
+*.o
+*.hi
 *.elc
 *~
