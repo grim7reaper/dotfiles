@@ -242,3 +242,10 @@
 
 ; Enable Company globally.
 (add-hook 'after-init-hook 'global-company-mode)
+
+;; ** ace-window
+
+; use `ace-window` instead of `other-window`.
+(use-package ace-window
+  :init
+  (global-set-key [remap other-window] 'ace-window))
