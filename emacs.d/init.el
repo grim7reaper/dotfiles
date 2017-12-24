@@ -150,6 +150,14 @@
     "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
     "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 
+;; * Windows management
+
+; Allow to move between windows using using Shift and the arrow keys
+(windmove-default-keybindings)
+
+; Records the changes in the window configuration (to allow undoes).
+(winner-mode 1)
+
 ;; * Packages management
 
 (require 'package)
