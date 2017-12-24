@@ -217,3 +217,20 @@
   :config
   (add-to-list 'auto-mode-alist '("\\.ledger$" . ledger-mode))
   (add-hook 'ledger-mode-hook 'outline-minor-mode))
+
+;; ** Company
+
+(use-package company)
+
+; Workaround to be compatible with Fill-Column-Indicator.
+; See https://github.com/alpaker/Fill-Column-Indicator/issues/54#issuecomment-218344694
+(defun on-off-fci-before-company(command)
+  (when (string= "show" command)
+    (turn-off-fci-mode))
+  (when (string= "hide" command)
+    (turn-on-fci-mode)))
+
+(advice-add 'company-call-frontends :before #'on-off-fci-before-company)
+
+; Enable Company globally.
+(add-hook 'after-init-hook 'global-company-mode)
