@@ -27,7 +27,7 @@ set signature ""
 nnrpaccess news.eternal-september.org grim7reaper ""
 
 % Use builtin NNTP support to post articles.
-post_object "nntp"
+set post_object "nntp"
 
 % Disable local Message-ID generation, let the server do it.
 set generate_message_id 0
