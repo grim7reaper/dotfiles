@@ -69,7 +69,7 @@ progressbar_look = "=>"
 follow_now_playing_lyrics = "yes"
 
 # Fetch lyrics from genius.com
-lyrics_fetchers = genius
+lyrics_fetchers = "genius"
 
 # Screen that has to be displayed at start.
 startup_screen = "browser"
