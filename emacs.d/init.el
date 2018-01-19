@@ -249,3 +249,9 @@
 (use-package ace-window
   :init
   (global-set-key [remap other-window] 'ace-window))
+
+;; ** evil
+
+(use-package evil
+  :config
+  (evil-mode 1))
