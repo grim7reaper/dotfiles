@@ -69,6 +69,8 @@
 (setq sentence-end-double-space nil)    ; Sentences end with a single space!
 (setq nobreak-char-display      t)      ; Highlight no-break space & cie.
 
+(setq compilation-ask-about-save nil)   ; Automatically save before compiling.
+
 ;; * User interface
 
 (setq visible-bell           t)   ; Use visible bell, not the audible one.
@@ -255,3 +257,16 @@
 (use-package evil
   :config
   (evil-mode 1))
+
+;; ** Rust
+
+(use-package rust-mode
+  :init
+  (setq rust-format-on-save      t)  ; Call `rustfmt' on save.
+  (setq rust-indent-offset       4)  ; Indent with 4 spaces.
+  (setq rust-indent-method-chain t)  ; Indent method chains, aligned on '.'.
+  (setq rust-indent-where-clause t)) ; Indent the line starting with `where'.
+
+(use-package cargo
+  :init
+  (add-hook 'rust-mode-hook 'cargo-minor-mode))
