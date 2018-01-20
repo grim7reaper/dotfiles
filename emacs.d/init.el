@@ -199,7 +199,7 @@
 
 ; Display a ruler to represent the fill column.
 (use-package fill-column-indicator
-  :config
+  :init
   (add-hook 'text-mode-hook 'fci-mode)
   (add-hook 'prog-mode-hook 'fci-mode))
 
@@ -207,7 +207,7 @@
 
 ; Use outline as replacement for Vim's folds based on markers.
 (use-package outshine
-  :config
+  :init
   (setq outshine-startup-folded-p   t)
   (setq outshine-use-speed-commands t)
   (add-hook 'outline-minor-mode-hook 'outshine-hook-function)
@@ -216,13 +216,13 @@
 ;; ** Docker
 
 (use-package dockerfile-mode
-  :config
+  :init
   (setq dockerfile-use-sudo t))
 
 ;; ** Ledger
 
 (use-package ledger-mode
-  :config
+  :init
   (add-to-list 'auto-mode-alist '("\\.ledger$" . ledger-mode))
   (add-hook 'ledger-mode-hook 'outline-minor-mode))
 
