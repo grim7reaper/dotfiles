@@ -37,6 +37,32 @@
 (setq custom-file (prepend-emacs-home "custom.el"))
 (load custom-file t)
 
+;; * Packages management
+
+(require 'package)
+
+; We explicitly call `package-initialize`: no need to redo it later.
+(setq package-enable-at-startup nil)
+
+(setq package-archives
+      '(("gnu"   . "https://elpa.gnu.org/packages/")
+        ("melpa" . "https://melpa.org/packages/")))
+
+(package-initialize)
+
+; Bootstrap `use-package` (it is used to install/configure the other packages).
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+
+(setq use-package-verbose       t) ; To always have timing information.
+(setq use-package-always-ensure t) ; Always install declared packages.
+
+; Explicit require needed because I modified `use-package-verbose`.
+(require 'use-package)
+
+; Try packages without installing them.
+(use-package try)
+
 ;; * Identity
 
 (setq user-full-name    "Sylvain Laperche"
@@ -90,7 +116,30 @@
     (scroll-bar-mode -1))
 )
 
-;; * ibuffer
+; Displays available keybindings in popup (good for discoverability).
+(use-package which-key
+  :config
+  (which-key-mode))
+
+; Display a ruler to represent the fill column.
+(use-package fill-column-indicator
+  :init
+  (add-hook 'text-mode-hook 'fci-mode)
+  (add-hook 'prog-mode-hook 'fci-mode))
+
+;; ** Interactively DO things
+
+(require 'ido)
+
+(setq ido-everywhere            t        ; Use it for buffer and file selection.
+      ido-enable-flex-matching  t        ; Flexible matching is the best!
+      ido-ignore-extensions     t        ; Use `completion-ignored-extensions`.
+      ido-use-filename-at-point 'guess   ; Enable ffap for the files.
+      ido-use-url-at-point      'guess   ; Enable ffap for the URLs.
+      ido-create-new-buffer     'always) ; Don't ask before creating new buffer.
+(ido-mode 1)
+
+;; ** ibuffer
 
 ; Use ibuffer instead of list-buffers.
 (global-set-key (kbd "C-x C-b") 'ibuffer)
@@ -102,26 +151,30 @@
           '(lambda ()
              (ibuffer-auto-mode 1))) ; Keeps the buffer list up to date.
 
-; TODO: use ibuffer-saved-filter-groups (with ibuffer-show-empty-filter-groups)?
-; Source: http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
-
-;; * Whitespace
+;; ** Whitespace
 
 ; Highlight tabs and trailing spaces.
 (setq whitespace-style '(face trailing tabs tab-mark))
 (global-whitespace-mode 1)
 
-;; * Interactively DO things
+;; ** Windows management
 
-(require 'ido)
+; Allow to move between windows using using Shift and the arrow keys
+(windmove-default-keybindings)
 
-(setq ido-everywhere            t        ; Use it for buffer and file selection.
-      ido-enable-flex-matching  t        ; Flexible matching is the best!
-      ido-ignore-extensions     t        ; Use `completion-ignored-extensions`.
-      ido-use-filename-at-point 'guess   ; Enable ffap for the files.
-      ido-use-url-at-point      'guess   ; Enable ffap for the URLs.
-      ido-create-new-buffer     'always) ; Don't ask before creating new buffer.
-(ido-mode 1)
+; Records the changes in the window configuration (to allow undoes).
+(winner-mode 1)
+
+; use `ace-window` instead of `other-window`.
+(use-package ace-window
+  :init
+  (global-set-key [remap other-window] 'ace-window))
+
+;; * evil
+
+(use-package evil
+  :config
+  (evil-mode 1))
 
 ;; * Org
 
@@ -152,83 +205,8 @@
     "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
     "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 
-;; * Windows management
-
-; Allow to move between windows using using Shift and the arrow keys
-(windmove-default-keybindings)
-
-; Records the changes in the window configuration (to allow undoes).
-(winner-mode 1)
-
-;; * Packages management
-
-(require 'package)
-
-; We explicitly call `package-initialize`: no need to redo it later.
-(setq package-enable-at-startup nil)
-
-(setq package-archives
-      '(("gnu"   . "https://elpa.gnu.org/packages/")
-        ("melpa" . "https://melpa.org/packages/")))
-
-(package-initialize)
-
-;; ** use-package
-
-; Bootstrap `use-package` (it is used to install/configure the other packages).
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-
-(setq use-package-verbose       t) ; To always have timing information.
-(setq use-package-always-ensure t) ; Always install declared packages.
-
-; Explicit require needed because I modified `use-package-verbose`.
-(require 'use-package)
-
-;; ** Try
-
-; Try packages without installing them.
-(use-package try)
-
-;; ** which-key
-
-; Displays available keybindings in popup (good for discoverability).
-(use-package which-key
-  :config
-  (which-key-mode))
-
-;; ** Fill-Column-Indicator
-
-; Display a ruler to represent the fill column.
-(use-package fill-column-indicator
-  :init
-  (add-hook 'text-mode-hook 'fci-mode)
-  (add-hook 'prog-mode-hook 'fci-mode))
-
-;; ** Outshine
-
-; Use outline as replacement for Vim's folds based on markers.
-(use-package outshine
-  :init
-  (setq outshine-startup-folded-p   t)
-  (setq outshine-use-speed-commands t)
-  (add-hook 'outline-minor-mode-hook 'outshine-hook-function)
-  (add-hook 'prog-mode-hook 'outline-minor-mode))
-
-;; ** Docker
-
-(use-package dockerfile-mode
-  :init
-  (setq dockerfile-use-sudo t))
-
-;; ** Ledger
-
-(use-package ledger-mode
-  :init
-  (add-to-list 'auto-mode-alist '("\\.ledger$" . ledger-mode))
-  (add-hook 'ledger-mode-hook 'outline-minor-mode))
-
-;; ** Company
+;; * Programming
+;; ** Auto-completion
 
 (use-package company)
 
@@ -245,18 +223,15 @@
 ; Enable Company globally.
 (add-hook 'after-init-hook 'global-company-mode)
 
-;; ** ace-window
+;; ** Outshine
 
-; use `ace-window` instead of `other-window`.
-(use-package ace-window
+; Use outline as replacement for Vim's folds based on markers.
+(use-package outshine
   :init
-  (global-set-key [remap other-window] 'ace-window))
-
-;; ** evil
-
-(use-package evil
-  :config
-  (evil-mode 1))
+  (setq outshine-startup-folded-p   t)
+  (setq outshine-use-speed-commands t)
+  (add-hook 'outline-minor-mode-hook 'outshine-hook-function)
+  (add-hook 'prog-mode-hook 'outline-minor-mode))
 
 ;; ** Rust
 
@@ -270,3 +245,17 @@
 (use-package cargo
   :init
   (add-hook 'rust-mode-hook 'cargo-minor-mode))
+
+;; ** Docker
+
+(use-package dockerfile-mode
+  :init
+  (setq dockerfile-use-sudo t))
+
+;; * Misc.
+;; ** Ledger
+
+(use-package ledger-mode
+  :init
+  (add-to-list 'auto-mode-alist '("\\.ledger$" . ledger-mode))
+  (add-hook 'ledger-mode-hook 'outline-minor-mode))
