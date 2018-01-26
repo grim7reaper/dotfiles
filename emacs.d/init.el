@@ -123,9 +123,8 @@
 
 ; Display a ruler to represent the fill column.
 (use-package fill-column-indicator
-  :init
-  (add-hook 'text-mode-hook 'fci-mode)
-  (add-hook 'prog-mode-hook 'fci-mode))
+  :hook
+  ((prog-mode text-mode) . fci-mode))
 
 ;; ** Interactively DO things
 
@@ -230,8 +229,9 @@
   :init
   (setq outshine-startup-folded-p   t)
   (setq outshine-use-speed-commands t)
-  (add-hook 'outline-minor-mode-hook 'outshine-hook-function)
-  (add-hook 'prog-mode-hook 'outline-minor-mode))
+  :hook
+  (outline-minor-mode . outshine-hook-function)
+  (prog-mode          . outline-minor-mode))
 
 ;; ** Rust
 
@@ -243,8 +243,8 @@
   (setq rust-indent-where-clause t)) ; Indent the line starting with `where'.
 
 (use-package cargo
-  :init
-  (add-hook 'rust-mode-hook 'cargo-minor-mode))
+  :hook
+  (rust-mode . cargo-minor-mode))
 
 ;; ** Docker
 
@@ -256,6 +256,6 @@
 ;; ** Ledger
 
 (use-package ledger-mode
-  :init
-  (add-to-list 'auto-mode-alist '("\\.ledger$" . ledger-mode))
-  (add-hook 'ledger-mode-hook 'outline-minor-mode))
+  :mode "\\.ledger$"
+  :hook
+  (ledger-mode . outline-minor-mode))
