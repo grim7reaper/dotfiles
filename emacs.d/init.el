@@ -259,3 +259,19 @@
   :mode "\\.ledger$"
   :hook
   (ledger-mode . outline-minor-mode))
+
+;; ** Markdown
+
+(use-package markdown-mode
+  :commands
+  (markdown-mode gfm-mode)
+  :mode
+  ("README\\.md\\'" . gfm-mode)
+  :init
+  (setq markdown-command "pandoc")
+  (setq markdown-asymmetric-header t)
+  (setq markdown-hide-markup       t)
+  (setq markdown-fontify-code-blocks-natively t))
+
+; To be able to edit code blocks in indirect buffers using `C-c '`
+(use-package edit-indirect)
