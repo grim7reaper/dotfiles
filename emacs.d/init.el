@@ -206,6 +206,8 @@
 
 (show-paren-mode 1)  ; Highlights matching parentheses & co.
 
+(use-package cmake-mode)
+
 ;; ** Auto-completion
 
 (use-package company)
