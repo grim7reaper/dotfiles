@@ -203,6 +203,9 @@
     "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 
 ;; * Programming
+
+(show-paren-mode 1)  ; Highlights matching parentheses & co.
+
 ;; ** Auto-completion
 
 (use-package company)
