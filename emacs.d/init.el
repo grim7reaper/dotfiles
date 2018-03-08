@@ -136,6 +136,14 @@
   :bind
   ("C-s" . swiper))
 
+;; ** avy
+
+(use-package avy
+  :bind
+  ("M-g c" . avy-goto-char)
+  ("M-g f" . avy-goto-line)
+  ("M-g w" . avy-goto-word-1))
+
 ;; ** ibuffer
 
 ; Use ibuffer instead of list-buffers.
