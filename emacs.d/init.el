@@ -126,15 +126,15 @@
   :hook
   ((prog-mode text-mode) . fci-mode))
 
-;; ** Interactively DO things
+;; ** ivy
 
-(require 'ido)
+(use-package ivy
+  :config
+  (ivy-mode 1))
 
-(setq ido-everywhere            t        ; Use it for buffer and file selection.
-      ido-enable-flex-matching  t        ; Flexible matching is the best!
-      ido-ignore-extensions     t        ; Use `completion-ignored-extensions`.
-      ido-create-new-buffer     'always) ; Don't ask before creating new buffer.
-(ido-mode 1)
+(use-package swiper
+  :bind
+  ("C-s" . swiper))
 
 ;; ** ibuffer
 

@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (cmake-mode edit-indirect markdown-mode cargo rust-mode evil ace-window company ledger-mode dockerfile-mode outshine fill-column-indicator which-key try use-package))))
+    (swiper ivy cmake-mode edit-indirect markdown-mode cargo rust-mode evil ace-window company ledger-mode dockerfile-mode outshine fill-column-indicator which-key try use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
