@@ -87,6 +87,9 @@
         regexp-search-ring))
 (savehist-mode 1)
 
+; Auto-reload files modified on disk, safely (don't overwrite my own changes).
+(global-auto-revert-mode 1)
+
 ;; ** Misc.
 (setq-default indent-tabs-mode  nil)    ; Use spaces for indentation.
 (setq-default tab-width         4)      ; Indent with 4 spaces by default.
