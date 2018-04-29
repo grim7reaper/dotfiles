@@ -43,6 +43,8 @@ export HOST
 export WINEARCH=win32
 # Java: aesthetic…
 #export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+
+# Informs the JVM that my WM (useful for XMonad, dwm, …) is non-reparenting.
 export _JAVA_AWT_WM_NONREPARENTING=1
 # For pushd
 export DIRSTACKSIZE=16
