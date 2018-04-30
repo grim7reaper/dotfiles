@@ -1,0 +1,78 @@
+# This is the sshd server system-wide configuration file.
+# See sshd_config(5) for more information.
+#
+# References:
+# - https://pthree.org/2015/01/12/reasonable-ssh-security-for-openssh-6-0-or-later/
+# - https://stribika.github.io/2015/01/04/secure-secure-shell.html
+
+# Do not use the the v1 protocol.
+Protocol 2
+
+Port 22
+# Allow both IPv4 and IPv6.
+AddressFamily any
+ListenAddress 0.0.0.0
+ListenAddress ::
+
+# Only allow connections from users that are in the ssh-user groups.
+AllowGroups ssh-user
+
+# HostKeys
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_ed25519_key
+#HostKey /etc/ssh/ssh_host_key       => for protocol version 1.
+#HostKey /etc/ssh/ssh_host_dsa_key   => Key too small.
+#HostKey /etc/ssh/ssh_host_ecdsa_key => NSA backdoored?
+
+# Ciphers and keying (only use "good" algorithms).
+RekeyLimit default none
+Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com
+KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256
+
+# Logging.
+LogLevel INFO
+
+# Authentication.
+PermitRootLogin no
+StrictModes yes
+MaxAuthTries 3
+
+# Only use public key authentication.
+PubkeyAuthentication            yes
+PasswordAuthentication          no
+ChallengeResponseAuthentication no
+HostbasedAuthentication         no
+KerberosAuthentication          no
+GSSAPIAuthentication            no
+
+AuthorizedKeysFile   .ssh/authorized_keys
+IgnoreUserKnownHosts no
+
+# Forwarding (disabling these does not improve security).
+AllowAgentForwarding yes
+AllowTcpForwarding   yes
+X11Forwarding        no
+GatewayPorts         no
+
+# Misc.
+Banner       none
+Compression  yes
+PermitTTY    yes
+PrintLastLog yes
+TCPKeepAlive yes
+UseDNS       no
+UsePAM       no
+
+# May enable users to bypass access restrictions.
+PermitUserEnvironment no
+
+# Override default of no subsystems.
+Subsystem	sftp	/usr/lib/ssh/sftp-server
+
+# Example of overriding settings on a per-user basis
+#Match User anoncvs
+#	X11Forwarding no
+#	AllowTcpForwarding no
+#	PermitTTY no
+#	ForceCommand cvs server
