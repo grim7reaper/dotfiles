@@ -124,11 +124,6 @@
   :config
   (which-key-mode))
 
-; Display a ruler to represent the fill column.
-(use-package fill-column-indicator
-  :hook
-  ((prog-mode text-mode) . fci-mode))
-
 ;; ** ivy
 
 (use-package ivy
@@ -162,7 +157,7 @@
 ;; ** Whitespace
 
 ; Highlight tabs and trailing spaces.
-(setq whitespace-style '(face trailing tabs tab-mark))
+(setq whitespace-style '(face lines-tail trailing tabs tab-mark))
 (global-whitespace-mode 1)
 
 ;; ** Windows management
@@ -222,16 +217,6 @@
 ;; ** Auto-completion
 
 (use-package company)
-
-; Workaround to be compatible with Fill-Column-Indicator.
-; See https://github.com/alpaker/Fill-Column-Indicator/issues/54#issuecomment-218344694
-(defun on-off-fci-before-company(command)
-  (when (string= "show" command)
-    (turn-off-fci-mode))
-  (when (string= "hide" command)
-    (turn-on-fci-mode)))
-
-(advice-add 'company-call-frontends :before #'on-off-fci-before-company)
 
 ; Enable Company globally.
 (add-hook 'after-init-hook 'global-company-mode)
