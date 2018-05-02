@@ -1,0 +1,184 @@
+# -*- origami-fold-style: triple-braces -*-
+
+# Common configuration {{{
+
+AllCops:
+  # We target Ruby >= 2.5.
+  TargetRubyVersion: 2.5
+  # Show related style guide URLs in offense messages.
+  DisplayStyleGuide: true
+  # Enable all cops by default.
+  EnabledByDefault: true
+
+# }}}
+# Layout cops {{{
+
+Layout/AlignHash:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+  EnforcedLastArgumentHashStyle: always_inspect
+
+Layout/EmptyLineBetweenDefs:
+  NumberOfEmptyLines: 1
+  AllowAdjacentOneLineDefs: true
+
+Layout/EndOfLine:
+  EnforcedStyle: lf
+
+Layout/FirstArrayElementLineBreak:
+  Enabled: false
+
+Layout/FirstHashElementLineBreak:
+  Enabled: false
+
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: false
+
+Layout/FirstMethodParameterLineBreak:
+  Enabled: false
+
+Layout/FirstParameterIndentation:
+  EnforcedStyle: consistent
+
+Layout/IndentArray:
+  EnforcedStyle: consistent
+
+Layout/IndentHash:
+  EnforcedStyle: consistent
+
+Layout/IndentHeredoc:
+  EnforcedStyle: squiggly
+
+Layout/MultilineAssignmentLayout:
+  EnforcedStyle: same_line
+
+# Too much Python corrupted me…
+Layout/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: no_space
+
+# To be consistent with Hash literals.
+Layout/SpaceInsideArrayLiteralBrackets:
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBrackets: no_space
+
+# }}}
+# Naming cops {{{
+
+# I like prefixes like `has_` and `is_`, IMHO they improve the readability.
+Naming/PredicateName:
+  NamePrefixBlacklist: []
+
+Naming/UncommunicativeBlockParamName:
+  AllowNamesEndingInNumbers: false
+
+Naming/UncommunicativeMethodParamName:
+  AllowNamesEndingInNumbers: false
+
+# }}}
+# Rails cops {{{
+
+Rails:
+  Enabled: false
+
+# }}}
+# Style cops {{{
+
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
+# Unicode is nice.
+Style/AsciiComments:
+  Enabled: false
+
+# I want to allow both, and use the most readable one according to the context.
+Style/ClassCheck:
+  Enabled: false
+
+# Ditto.
+Style/CollectionMethods:
+  Enabled: false
+
+Style/CommentAnnotation:
+  Keywords: [TODO, FIXME, XXX]
+
+Style/Copyright:
+  Enabled: false
+
+Style/DocumentationMethod:
+  RequireForNonPublicMethods: true
+
+Style/EmptyElse:
+  EnforcedStyle: empty
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+# My C background…
+Style/FormatString:
+  EnforcedStyle: sprintf
+
+Style/HashSyntax:
+  EnforcedStyle: ruby19_no_mixed_keys
+
+Style/InlineComment:
+  Enabled: false
+
+Style/MethodCallWithArgsParentheses:
+  IgnoredMethods: [require]
+
+Style/MethodCalledOnDoEndBlock:
+  Enabled: false
+
+Style/MissingElse:
+  EnforcedStyle: case
+
+# As both approach have different implications, there is no reason to forbid
+# one.
+Style/ModuleFunction:
+  Enabled: false
+
+Style/MultilineMemoization:
+  EnforcedStyle: braces
+
+# The form
+# a = cond ? foo
+#          : bar
+# can be useful sometimes.
+Style/MultilineTernaryOperator:
+  Enabled: false
+
+Style/NumericLiterals:
+  Strict: true
+
+# I find the verbose version more readable, even though they are less Ruby-ish.
+Style/PreferredHashMethods:
+  EnforcedStyle: verbose
+
+# It doesn't hurt to be explicit.
+Style/RedundantException:
+  Enabled: false
+
+Style/StringLiterals:
+  ConsistentQuotesInMultiline: true
+
+# Aliases can enhance readability.
+Style/StringMethods:
+  Enabled: false
+
+Style/TernaryParentheses:
+  EnforcedStyle: require_parentheses_when_complex
+
+# I like _
+Style/TrailingUnderscoreVariable:
+  Enabled: false
+
+Style/UnlessElse:
+  Enabled: false
+
+# }}}
+# Extensions {{{
+
+require:
+ - rubocop-thread_safety
+
+# }}}
