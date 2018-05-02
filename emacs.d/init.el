@@ -274,3 +274,7 @@
 
 ; To be able to edit code blocks in indirect buffers using `C-c '`
 (use-package edit-indirect)
+
+;; ** YAML
+
+(use-package yaml-mode)
