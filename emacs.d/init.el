@@ -223,17 +223,6 @@
 ; Enable Company globally.
 (add-hook 'after-init-hook 'global-company-mode)
 
-;; ** Outshine
-
-; Use outline as replacement for Vim's folds based on markers.
-(use-package outshine
-  :init
-  (setq outshine-startup-folded-p   t)
-  (setq outshine-use-speed-commands t)
-  :hook
-  (outline-minor-mode . outshine-hook-function)
-  (prog-mode          . outline-minor-mode))
-
 ;; ** Origami
 
 ; Use origami as replacement for Vim's folds based on markers.
