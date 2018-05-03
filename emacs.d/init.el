@@ -234,6 +234,108 @@
   (outline-minor-mode . outshine-hook-function)
   (prog-mode          . outline-minor-mode))
 
+;; ** Origami
+
+; Use origami as replacement for Vim's folds based on markers.
+(use-package origami
+  :hook
+  (origami-mode . my-origami-hook)
+  ((prog-mode conf-mode yaml-mode) . origami-mode)
+  ; Use Vim-like keybindings.
+  :bind (:map evil-normal-state-map
+              ("zo" . my-open-fold)
+              ("zO" . my-open-fold-recursively)
+              ("zc" . my-close-fold)
+              ("zC" . my-close-fold-recursively)
+              ("za" . origami-forward-toggle-node)
+              ("zA" . my-toggle-fold-recursively)
+              ("zM" . origami-close-all-nodes)
+              ("zR" . origami-open-all-nodes)))
+
+(defun my-origami-hook ()
+  ; Always use marker-based folding.
+  (setq-local origami-fold-style 'triple-braces)
+  ; Starts with all the fold closed.
+  (origami-close-all-nodes (current-buffer)))
+
+;; *** Origami helpers
+
+; These functions are inspired from origami-forward-toggle-node.
+;
+; With these, you don't need to be exactly on a fold marker to open/close it.
+; You just have to be on the same line (like in Vim) or inside a fold (to close
+; it).
+;
+; I hope they could be integrated upstream:
+; See https://github.com/gregsexton/origami.el/pull/71
+
+(defun my-open-fold (buffer point)
+  "If the current line contains a closed fold, open it."
+  (interactive (list (current-buffer) (point)))
+  (-when-let (tree (origami-get-fold-tree buffer))
+    (-when-let (path (origami-search-forward-for-path buffer point))
+      (origami-apply-new-tree
+       buffer tree (origami-store-cached-tree
+                    buffer
+                    (origami-fold-assoc path
+                                        (lambda (node)
+                                          (origami-fold-open-set node t))))))))
+
+(defun my-open-fold-recursively (buffer point)
+  "If the current line contains a closed fold, open it and all of its children."
+  (interactive (list (current-buffer) (point)))
+  (-when-let (tree (origami-get-fold-tree buffer))
+    (-when-let (path (origami-search-forward-for-path buffer point))
+      (origami-apply-new-tree
+       buffer tree (origami-store-cached-tree
+                    buffer
+                    (origami-fold-assoc path
+                                        (lambda (node)
+                                          (origami-fold-map
+                                           (lambda (node)
+                                             (origami-fold-open-set node t))
+                                           node))))))))
+
+(defun my-close-fold (buffer point)
+  "If we are inside/onto an open fold, close it."
+  (interactive (list (current-buffer) (point)))
+  (-when-let (tree (origami-get-fold-tree buffer))
+    (-when-let (path (origami-search-forward-for-path buffer point))
+      (origami-apply-new-tree
+       buffer tree (origami-store-cached-tree
+                    buffer
+                    (origami-fold-assoc path
+                                        (lambda (node)
+                                          (origami-fold-open-set node nil))))))))
+
+(defun my-close-fold-recursively (buffer point)
+  "If we are inside/onto an open fold, close it and all of its children."
+  (interactive (list (current-buffer) (point)))
+  (-when-let (tree (origami-get-fold-tree buffer))
+    (-when-let (path (origami-search-forward-for-path buffer point))
+      (origami-apply-new-tree
+       buffer tree (origami-store-cached-tree
+                    buffer
+                    (origami-fold-assoc path
+                                        (lambda (node)
+                                          (origami-fold-map
+                                           (lambda (node)
+                                             (origami-fold-open-set node nil))
+                                           node))))))))
+
+(defun my-toggle-fold-recursively (buffer point)
+  "Toggle recursively the current fold.
+
+If the current line contains a closed fold, open it and all of its children.
+If we are inside/onto an open fold, close it and all of its children."
+  (interactive (list (current-buffer) (point)))
+  (-when-let (path (origami-search-forward-for-path buffer point))
+    (let ((node (-last-item path)))
+      (cond ((origami-fold-node-recursively-open? node)
+             (origami-close-node-recursively buffer (origami-fold-beg node)))
+            ((origami-fold-node-recursively-closed? node)
+             (origami-open-node-recursively buffer (origami-fold-beg node)))))))
+
 ;; ** Rust
 
 (use-package rust-mode
