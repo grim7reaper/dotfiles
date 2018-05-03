@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;; * Encoding
 
 ; Set up multilingual environment to use UTF-8.
