@@ -151,9 +151,10 @@
 ; Don't ask for confirmation to delete unmodified buffers.
 (setq ibuffer-expert t)
 
-(add-hook 'ibuffer-mode-hook
-          '(lambda ()
-             (ibuffer-auto-mode 1))) ; Keeps the buffer list up to date.
+(add-hook 'ibuffer-mode-hook #'my-ibuffer-hook)
+
+(defun my-ibuffer-hook ()
+  (ibuffer-auto-mode 1)) ; Keeps the buffer list up to date.
 
 ;; ** Whitespace
 
