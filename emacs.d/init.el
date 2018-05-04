@@ -1,5 +1,5 @@
 ;; -*- lexical-binding: t; -*-
-;; * Encoding
+;; Encoding {{{
 
 ; Set up multilingual environment to use UTF-8.
 (set-language-environment "UTF-8")
@@ -8,7 +8,8 @@
 (prefer-coding-system       'utf-8)
 (set-default-coding-systems 'utf-8)
 
-;; * Paths
+;; }}}
+;; Paths {{{
 
 ; Emacs's home :)
 (setq user-emacs-directory "~/.emacs.d/")
@@ -38,7 +39,8 @@
 (setq custom-file (prepend-emacs-home "custom.el"))
 (load custom-file t)
 
-;; * Packages management
+;; }}}
+;; Packages management {{{
 
 (require 'package)
 
@@ -64,13 +66,16 @@
 ; Try packages without installing them.
 (use-package try)
 
-;; * Identity
+;; }}}
+;; Identity {{{
 
 (setq user-full-name    "Sylvain Laperche"
       user-mail-address "sylvain.laperche@gmail.com")
 
-;; * General settings
-;; ** Backups
+;; }}}
+;; General settings {{{
+;; Backups {{{
+
 (setq make-backup-files    t  ; Do backup.
       backup-by-copying    t  ; Copying has less side-effects than renaming.
       version-control      t  ; Keep a series of numbered backup files.
@@ -79,7 +84,9 @@
       delete-old-versions  t  ; Don't ask to delete excess backup versions.
       vc-make-backup-files t) ; I don't commit on every save so it's useful.
 
-;; ** History
+;; }}}
+;; History {{{
+
 (setq history-delete-duplicates        t)
 (setq savehist-save-minibuffer-history 1)
 (setq savehist-additional-variables
@@ -91,7 +98,9 @@
 ; Auto-reload files modified on disk, safely (don't overwrite my own changes).
 (global-auto-revert-mode 1)
 
-;; ** Misc.
+;; }}}
+;; Misc. {{{
+
 (setq-default indent-tabs-mode  nil)    ; Use spaces for indentation.
 (setq-default tab-width         4)      ; Indent with 4 spaces by default.
 (setq-default fill-column       80)     ; Maximum width of a line.
@@ -101,7 +110,9 @@
 
 (setq compilation-ask-about-save nil)   ; Automatically save before compiling.
 
-;; * User interface
+;; }}}
+;; }}}
+;; User interface {{{
 
 (setq visible-bell           t)   ; Use visible bell, not the audible one.
 (setq inhibit-startup-screen t)   ; No splash screen.
@@ -125,7 +136,7 @@
   :config
   (which-key-mode))
 
-;; ** ivy
+;; ivy {{{
 
 (use-package ivy
   :config
@@ -135,7 +146,8 @@
   :bind
   ("C-s" . swiper))
 
-;; ** avy
+;; }}}
+;; avy {{{
 
 (use-package avy
   :bind
@@ -143,7 +155,8 @@
   ("M-g f" . avy-goto-line)
   ("M-g w" . avy-goto-word-1))
 
-;; ** ibuffer
+;; }}}
+;; ibuffer {{{
 
 ; Use ibuffer instead of list-buffers.
 (global-set-key (kbd "C-x C-b") 'ibuffer)
@@ -156,13 +169,15 @@
 (defun my-ibuffer-hook ()
   (ibuffer-auto-mode 1)) ; Keeps the buffer list up to date.
 
-;; ** Whitespace
+;; }}}
+;; Whitespace {{{
 
 ; Highlight tabs and trailing spaces.
 (setq whitespace-style '(face lines-tail trailing tabs tab-mark))
 (global-whitespace-mode 1)
 
-;; ** Windows management
+;; }}}
+;; Windows management {{{
 
 ; Allow to move between windows using using Shift and the arrow keys
 (windmove-default-keybindings)
@@ -175,13 +190,16 @@
   :init
   (global-set-key [remap other-window] 'ace-window))
 
-;; * evil
+;; }}}
+;; }}}
+;; evil {{{
 
 (use-package evil
   :config
   (evil-mode 1))
 
-;; * Org
+;; }}}
+;; Org {{{
 
 ; Keep a consistent indentation for the second line of a description list.
 (setq org-list-description-max-indent 5)
@@ -189,11 +207,11 @@
 ; Enable syntax highlighting for code blocks.
 (setq org-src-fontify-natively t)
 
-;; ** LaTeX
+;; LaTeX {{{
 
 (require 'ox-latex)
 
-;; *** Code highlighting
+;; Code highlighting {{{
 
 ; Use `minted` for code highlighting when exporting to LaTeX
 ; XXX: this depends on `pygments` (http://pygments.org).
@@ -210,20 +228,24 @@
     "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
     "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 
-;; * Programming
+;; }}}
+;; }}}
+;; }}}
+;; Programming {{{
 
 (show-paren-mode 1)  ; Highlights matching parentheses & co.
 
 (use-package cmake-mode)
 
-;; ** Auto-completion
+;; Auto-completion {{{
 
 (use-package company)
 
 ; Enable Company globally.
 (add-hook 'after-init-hook 'global-company-mode)
 
-;; ** Origami
+;; }}}
+;; Origami {{{
 
 ; Use origami as replacement for Vim's folds based on markers.
 (use-package origami
@@ -247,7 +269,7 @@
   ; Starts with all the fold closed.
   (origami-close-all-nodes (current-buffer)))
 
-;; *** Origami helpers
+;; Origami helpers {{{
 
 ; These functions are inspired from origami-forward-toggle-node.
 ;
@@ -325,7 +347,9 @@ If we are inside/onto an open fold, close it and all of its children."
             ((origami-fold-node-recursively-closed? node)
              (origami-open-node-recursively buffer (origami-fold-beg node)))))))
 
-;; ** Rust
+;; }}}
+;; }}}
+;; Rust {{{
 
 (use-package rust-mode
   :init
@@ -338,21 +362,25 @@ If we are inside/onto an open fold, close it and all of its children."
   :hook
   (rust-mode . cargo-minor-mode))
 
-;; ** Docker
+;; }}}
+;; Docker {{{
 
 (use-package dockerfile-mode
   :init
   (setq dockerfile-use-sudo t))
 
-;; * Misc.
-;; ** Ledger
+;; }}}
+;; }}}
+;; Misc. {{{
+;; Ledger {{{
 
 (use-package ledger-mode
   :mode "\\.ledger$"
   :hook
   (ledger-mode . outline-minor-mode))
 
-;; ** Markdown
+;; }}}
+;; Markdown {{{
 
 (use-package markdown-mode
   :commands
@@ -368,6 +396,10 @@ If we are inside/onto an open fold, close it and all of its children."
 ; To be able to edit code blocks in indirect buffers using `C-c '`
 (use-package edit-indirect)
 
-;; ** YAML
+;; }}}
+;; YAML {{{
 
 (use-package yaml-mode)
+
+;; }}}
+;; }}}
