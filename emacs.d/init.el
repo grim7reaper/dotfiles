@@ -251,7 +251,7 @@
 (use-package origami
   :hook
   (origami-mode . my-origami-hook)
-  ((prog-mode conf-mode yaml-mode) . origami-mode)
+  ((prog-mode conf-mode yaml-mode slang-mode) . origami-mode)
   ; Use Vim-like keybindings.
   :bind (:map evil-normal-state-map
               ("zo" . my-open-fold)
@@ -342,6 +342,14 @@ If we are inside/onto an open fold, close it and all of its children."
 (use-package dockerfile-mode
   :init
   (setq dockerfile-use-sudo t))
+
+;; }}}
+;; S-Lang {{{
+
+(autoload 'slang-mode "slang-mode"
+  "Mode for editing slang source files")
+(setq auto-mode-alist
+      (append '(("\\.sl$" . slang-mode)) auto-mode-alist))
 
 ;; }}}
 ;; }}}
