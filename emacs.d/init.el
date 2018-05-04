@@ -271,68 +271,43 @@
 
 ;; Origami helpers {{{
 
-; These functions are inspired from origami-forward-toggle-node.
+; Helpers to have a Vim-like behavior.
 ;
-; With these, you don't need to be exactly on a fold marker to open/close it.
-; You just have to be on the same line (like in Vim) or inside a fold (to close
-; it).
+; The wrapper allows the open/close functions to works even if we aren't exactly
+; on the fold node.
 ;
-; I hope they could be integrated upstream:
-; See https://github.com/gregsexton/origami.el/pull/71
+; The recursive toggle is a Vim-like toggle, unlike the one from origami which
+; is similar to an org-like cycle.
 
-(defun my-open-fold (buffer point)
+(defun fold-wrapper (fold-fun buffer)
+  "Wrapper for origami's fold functions
+
+Origami's fold functions usually require that you are on the fold marker to operate.
+With this wrapper, the behavior is more Vim-like."
+  (save-excursion
+    (end-of-line)
+    (origami-previous-fold buffer (point))
+    (funcall fold-fun buffer (point))))
+
+(defun my-open-fold (buffer)
   "If the current line contains a closed fold, open it."
-  (interactive (list (current-buffer) (point)))
-  (-when-let (tree (origami-get-fold-tree buffer))
-    (-when-let (path (origami-search-forward-for-path buffer point))
-      (origami-apply-new-tree
-       buffer tree (origami-store-cached-tree
-                    buffer
-                    (origami-fold-assoc path
-                                        (lambda (node)
-                                          (origami-fold-open-set node t))))))))
+  (interactive (list (current-buffer)))
+  (fold-wrapper 'origami-open-node buffer))
 
-(defun my-open-fold-recursively (buffer point)
+(defun my-open-fold-recursively (buffer)
   "If the current line contains a closed fold, open it and all of its children."
-  (interactive (list (current-buffer) (point)))
-  (-when-let (tree (origami-get-fold-tree buffer))
-    (-when-let (path (origami-search-forward-for-path buffer point))
-      (origami-apply-new-tree
-       buffer tree (origami-store-cached-tree
-                    buffer
-                    (origami-fold-assoc path
-                                        (lambda (node)
-                                          (origami-fold-map
-                                           (lambda (node)
-                                             (origami-fold-open-set node t))
-                                           node))))))))
+  (interactive (list (current-buffer)))
+  (fold-wrapper 'origami-open-node-recursively buffer))
 
-(defun my-close-fold (buffer point)
+(defun my-close-fold (buffer)
   "If we are inside/onto an open fold, close it."
-  (interactive (list (current-buffer) (point)))
-  (-when-let (tree (origami-get-fold-tree buffer))
-    (-when-let (path (origami-search-forward-for-path buffer point))
-      (origami-apply-new-tree
-       buffer tree (origami-store-cached-tree
-                    buffer
-                    (origami-fold-assoc path
-                                        (lambda (node)
-                                          (origami-fold-open-set node nil))))))))
+  (interactive (list (current-buffer)))
+  (fold-wrapper 'origami-close-node buffer))
 
-(defun my-close-fold-recursively (buffer point)
+(defun my-close-fold-recursively (buffer)
   "If we are inside/onto an open fold, close it and all of its children."
-  (interactive (list (current-buffer) (point)))
-  (-when-let (tree (origami-get-fold-tree buffer))
-    (-when-let (path (origami-search-forward-for-path buffer point))
-      (origami-apply-new-tree
-       buffer tree (origami-store-cached-tree
-                    buffer
-                    (origami-fold-assoc path
-                                        (lambda (node)
-                                          (origami-fold-map
-                                           (lambda (node)
-                                             (origami-fold-open-set node nil))
-                                           node))))))))
+  (interactive (list (current-buffer)))
+  (fold-wrapper 'origami-close-node-recursively buffer))
 
 (defun my-toggle-fold-recursively (buffer point)
   "Toggle recursively the current fold.
@@ -342,10 +317,9 @@ If we are inside/onto an open fold, close it and all of its children."
   (interactive (list (current-buffer) (point)))
   (-when-let (path (origami-search-forward-for-path buffer point))
     (let ((node (-last-item path)))
-      (cond ((origami-fold-node-recursively-open? node)
-             (origami-close-node-recursively buffer (origami-fold-beg node)))
-            ((origami-fold-node-recursively-closed? node)
-             (origami-open-node-recursively buffer (origami-fold-beg node)))))))
+        (if (origami-fold-open? node)
+            (origami-close-node-recursively buffer (origami-fold-beg node))
+          (origami-open-node-recursively buffer (origami-fold-beg node))))))
 
 ;; }}}
 ;; }}}
