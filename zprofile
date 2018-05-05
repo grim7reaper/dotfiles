@@ -1,4 +1,5 @@
-# {{{ PATH
+# -*- mode: sh -*-
+# PATH {{{
 
 OPT_PATHS=(
     "$HOME/.local/bin"              # Local binaries

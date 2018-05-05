@@ -1,4 +1,4 @@
-# {{{ Directories
+# Directories {{{
 
 # Directory for storing ncmpcpp related files.
 ncmpcpp_directory = "~/.local/share/ncmpcpp"
@@ -6,7 +6,7 @@ ncmpcpp_directory = "~/.local/share/ncmpcpp"
 lyrics_directory = "~/.local/share/ncmpcpp/lyrics"
 
 # }}}
-# {{{ Connection settings
+# Connection settings {{{
 
 # MPD address.
 mpd_host               = "localhost"
@@ -17,7 +17,7 @@ mpd_music_dir          = "~/Music"
 mpd_connection_timeout = "5"
 
 # }}}
-# {{{ Music visualizer
+# Music visualizer {{{
 
 # The FIFO output's format is set to "44100:16:2" in mpd.conf.
 visualizer_in_stereo = "yes"
@@ -35,12 +35,12 @@ visualizer_type = "spectrum"
 visualizer_look = "◾◾"
 
 # }}}
-# {{{ Colors
+# Colors {{{
 
 colors_enabled = "yes"
 
 # }}}
-# {{{ Misc.
+# Misc. {{{
 
 # Show time remaining to end of playlist.
 playlist_show_remaining_time = "yes"

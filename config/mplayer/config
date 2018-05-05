@@ -1,10 +1,10 @@
-# {{{ General
+# General {{{
 
 msgcolor=yes    # Enable colorful console output
 msgmodule=yes   # Prepend module name in front of each console message.
 
 # }}}
-# {{{ Player
+# Player {{{
 
 fixed-vo=yes    # Use only one window to play all files.
 pausing=2       # Keep the paused/playing status after a command has finished.
@@ -14,7 +14,7 @@ nojoystick=yes  # Turns off joystick support.
 nolirc=yes      # Turns off LIRC support.
 
 # }}}
-# {{{ Demuxer/stream
+# Demuxer/stream {{{
 
 alang=chi,jpn,eng,fre   # Priority list of audio languages to use.
 
@@ -22,7 +22,7 @@ cdrom-device=/dev/sr0   # Path to the CD-ROM device.
 dvd-device=/dev/sr0     # Path to the DVD device.
 
 # }}}
-# {{{ OSD/subtitle
+# OSD/subtitle {{{
 
 ass=yes         # Turn on SSA/ASS subtitle rendering.
 fontconfig=yes  # Enables the usage of fontconfig managed fonts.
@@ -36,24 +36,24 @@ slang=eng,fre,chi,jpn       # Priority list of subtitle languages to use.
 subfont-encoding=unicode    # Use Unicode as font encoding.
 
 # }}}
-# {{{ Audio output drivers
+# Audio output drivers {{{
 
 ao=pulse,alsa     # Priority list of audio output drivers to use.
 
 # }}}
-# {{{ Video output
+# Video output {{{
 
 fs=yes                  # Fullscreen playback.
 stop-xscreensaver=yes   # Turns off xscreensaver.
 use-filename-title=yes  # Use the media filename as window title.
 
 # }}}
-# {{{ Video output drivers
+# Video output drivers {{{
 
 vo=vdpau,   #  Priority list of video output drivers to use.
 
 # }}}
-# {{{ Video filters
+# Video filters {{{
 
 vf=screenshot       # Enable screenshot.
 

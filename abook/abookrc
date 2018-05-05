@@ -1,4 +1,5 @@
-# {{{ Custom fields
+# -*- mode: conf -*-
+# Custom fields {{{
 
 # Declare a few custom fields.
 field im      = "Messagerie", string
@@ -10,7 +11,7 @@ field notes5  = "Notes",      string
 field mobile2 = "Portable",   string
 
 # }}}
-# {{{ Views
+# Views {{{
 
 view Contact   = name, email
 view Adresse   = address, city, state, zip, country
@@ -19,7 +20,7 @@ view Autre     = url, im, anniversary
 view Notes     = notes1, notes2, notes3, notes4, notes5
 
 # }}}
-# {{{ Options
+# Options {{{
 
 # Preserve any unknown field while loading an abook database.
 set preserve_fields=all

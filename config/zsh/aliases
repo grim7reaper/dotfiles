@@ -1,4 +1,5 @@
-# {{{ XDG-compliance
+# -*- mode: sh -*-
+# XDG-compliance {{{
 
 alias abcde="abcde -c $XDG_CONFIG_HOME/abcde/abcde.conf"
 alias msmtp="msmtp --file=$XDG_CONFIG_HOME/msmtp/msmtprc"
@@ -10,7 +11,7 @@ alias wyrd="wyrd $XDG_DATA_HOME/remind/reminders.rem"
 alias xsel="xsel --logfile $XDG_DATA_HOME/xsel/log"
 
 # }}}
-# {{{ Pacman
+# Pacman {{{
 
 alias pac-dl='pacman -Sw'
 alias pac-linfo='pacman -Qi'
@@ -27,7 +28,7 @@ alias pac-inst='pacman -S'
 alias pac-linst='pacman -U'
 
 # }}}
-# {{{ Usual aliases
+# Usual aliases {{{
 
 alias g='git'
 alias gg='git grep'
@@ -62,9 +63,9 @@ alias umountiso="fusermount -u"
 alias emacs='LC_CTYPE=zh_CN.UTF-8 emacs'
 
 # }}}
-# {{{ Development
-# {{{ Compiler
-# {{{ GCC
+# Development {{{
+# Compiler {{{
+# GCC {{{
 
 C_FLAGS='\
 -std=c89 -Wall -Wextra -pedantic -Wdouble-promotion -Wformat=2 -Winit-self     \
@@ -92,7 +93,7 @@ alias g++_debug="g++ $CXX_FLAGS $CXX_FLAGS_DEBUG"
 alias g++_release="g++ $CXX_FLAGS $CXX_FLAGS_RELEASE"
 
 # }}}
-# {{{ Clang
+# Clang {{{
 
 C_FLAGS='-std=c89 -pipe'
 C_FLAGS_DEBUG='-g -fno-limit-debug-info -Weverything -fsanitize=undefined -ftrapv'
@@ -107,20 +108,20 @@ alias clang++_debug="clang++ $CXX_FLAGS $CXX_FLAGS_DEBUG"
 alias clang++_release="clang++ $CXX_FLAGS $CXX_FLAGS_RELEASE"
 
 # }}}
-# {{{ GHC
+# GHC {{{
 
 alias ghc_debug='ghc --make -Wall'
 alias ghc_release='ghc --make -Wall -O2'
 
 # }}}
 # }}}
-# {{{ Valgrind
-# {{{ Memory check
+# Valgrind {{{
+# Memory check {{{
 
 alias memory_check='valgrind --tool=memcheck --leak-check=full --leak-resolution=high --show-reachable=yes'
 
 # }}}
-# {{{ Profiling
+# Profiling {{{
 
 alias call_perf='valgrind  --tool=callgrind --dump-instr=yes --collect-jumps=yes --cache-sim=yes --branch-sim=yes'
 alias heap_perf='valgrind  --tool=massif --heap=yes --max-snapshots=200'

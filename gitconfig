@@ -1,4 +1,4 @@
-# {{{ user
+# user {{{
 
 [user]
     email      = sylvain.laperche@gmail.com
@@ -6,7 +6,7 @@
     signingKey = 4BA64AD0
 
 # }}}
-# {{{ alias
+# alias {{{
 
 [alias]
     # branch
@@ -51,7 +51,7 @@
     untrack = rm --cached
 
 # }}}
-# {{{ color
+# color {{{
 
 [color]
     branch      = auto
@@ -61,46 +61,46 @@
     ui          = auto
 
 # }}}
-# {{{ pretty
+# pretty {{{
 
 [pretty]
     # reflog with date.
     reflog = %C(auto)%h %<|(17)%gd %C(blue)%cI%C(reset) %gs
 
 # }}}
-# {{{ core
+# core {{{
 
 [core]
     editor = vim
     pager  = less
 
 # }}}
-# {{{ Commands
-# {{{ apply
+# commands {{{
+# apply {{{
 
 [apply]
     whitespace=error
 
 # }}}
-# {{{ diff
+# diff {{{
 
 [diff]
     renames = copies
 
 # }}}
-# {{{ grep
+# grep {{{
 
 [grep]
     lineNumber = true
 
 # }}}
-# {{{ init
+# init {{{
 
 [init]
     templateDir = ~/.local/share/git/template
 
 # }}}
-# {{{ merge
+# merge {{{
 
 [merge]
     conflictStyle = diff3
@@ -108,13 +108,13 @@
     tool          = vimdiff
 
 # }}}
-# {{{ push
+# push {{{
 
 [push]
     default = simple
 
 # }}}
-# {{{ rebase
+# rebase {{{
 
 [rebase]
     autosquash = true
@@ -122,7 +122,7 @@
 
 # }}}
 # }}}
-# {{{ transfer
+# transfer {{{
 
 [transfer]
     # https://groups.google.com/forum/#!topic/binary-transparency/f-BI4o8HZW0

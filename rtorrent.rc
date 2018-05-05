@@ -1,4 +1,5 @@
-# {{{ General
+# -*- mode: conf -*-
+# General {{{
 
 # Port range to use for listening (inclusive bounds).
 port_range = 49164-49164
@@ -25,7 +26,7 @@ encryption = allow_incoming,try_outgoing,enable_retry
 peer_exchange = yes
 
 # }}}
-# {{{ Throttling
+# Throttling {{{
 
 # From https://torrentfreak.com/optimize-your-BitTorrent-download-speed/
 # upload_rate   = 80% of the maximum upload   speed.
@@ -43,7 +44,7 @@ max_peers = 1024
 max_uploads = 128
 
 # }}}
-# {{{ Trackers
+# Trackers {{{
 
 # Allow the use of UDP trackers.
 use_udp_trackers = yes
@@ -54,7 +55,7 @@ dht = auto
 dht_port = 6881
 
 # }}}
-# {{{ Scheduled actions
+# Scheduled actions {{{
 
 # Watch a directory for new torrents, and stop those that have been deleted.
 schedule = watch_directory,5,5,load_start=~/.local/share/rtorrent/watch/*.torrent
@@ -65,7 +66,7 @@ schedule = untied_directory,5,5,stop_untied=
 schedule = low_diskspace,5,60,close_low_diskspace=5120M
 
 # }}}
-# {{{ Advanced settings
+# Advanced settings {{{
 
 # Local domain socket path for XMLRPC.
 scgi_local = ~/.local/share/rtorrent/rpc.socket

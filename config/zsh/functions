@@ -1,4 +1,5 @@
-# {{{ Help-like functions
+# -*- mode: sh -*-
+# Help-like functions {{{
 
 # Colored man pages (from Archlinux Wiki)
 # Source: https://wiki.archlinux.org/index.php/Man_Page#Colored_man_pages
@@ -33,7 +34,7 @@ rfc-update()
 }
 
 # }}}
-# {{{ Prompt
+# Prompt {{{
 
 precmd() {
     vcs_info
@@ -78,7 +79,7 @@ prompt-precmd()
 precmd_functions+=(prompt-precmd)
 
 # }}}
-# {{{ Archives management
+# Archives management {{{
 
 # Create archives or compress files.
 # Usage: pack filename
@@ -142,7 +143,7 @@ unpack()
 }
 
 # }}}
-# {{{ VCS hook
+# VCS hook {{{
 
 # Show count of stashed changes
 function +vi-git-stash()

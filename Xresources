@@ -1,4 +1,4 @@
-! {{{ URxvt
+! URxvt {{{
 
 URxvt.termName:   rxvt-unicode-256color
 
@@ -28,7 +28,7 @@ URxvt.iso14755_52: True
 ! Use Alt as Meta key.
 URxvt.modifier: alt
 
-! {{{ Extensions
+! Extensions {{{
 
 URxvt.perl-lib : .local/share/urxvt/perl
 URxvt.perl-ext-common: default,tabbed,selection-to-clipboard,keyboard-select,url-select,url-picker

@@ -1,5 +1,6 @@
-# {{{ Conditional
-# {{{ if/else
+# -*- mode: snippet -*-
+# Conditional {{{
+# if/else {{{
 
 snippet if "if" b
 if $1 then
@@ -30,7 +31,7 @@ if $1 then $2 else $0
 endsnippet
 
 # }}}
-# {{{ case/when
+# case/when {{{
 
 snippet sw "switch" b
 case ${1:var} is
@@ -48,8 +49,8 @@ endsnippet
 
 # }}}
 # }}}
-# {{{ Loop
-# {{{ For
+# Loop {{{
+# For {{{
 
 snippet for "for in [start, stop]" b
 for ${1:I} in ${2:Start} .. ${3:Stop} loop
@@ -92,7 +93,7 @@ end loop;
 endsnippet
 
 # }}}
-# {{{ Packages
+# Packages {{{
 
 snippet pac "package" b
 package ${1:`!p snip.rv = snip.basename.title().replace('-', '.')`} is
@@ -111,8 +112,8 @@ with $1;$0
 endsnippet
 
 # }}}
-# {{{ Subprograms
-# {{{ Functions
+# Subprograms {{{
+# Functions {{{
 
 snippet fund "function declaration" b
 function ${1:name}($2) return $3;
@@ -138,7 +139,7 @@ end return;
 endsnippet
 
 # }}}
-# {{{ Procedures
+# Procedures {{{
 
 snippet procd "procedure declaration" b
 procedure ${1:name}($2);
@@ -163,7 +164,7 @@ end;
 endsnippet
 
 # }}}
-# {{{ Tasks and al.
+# Tasks and al. {{{
 
 snippet acc "accept"
 accept $1($2) do
@@ -178,7 +179,7 @@ begin
 end $1;
 endsnippet
 
-# {{{ Protected types
+# Protected types {{{
 
 snippet prot "protected type" b
 protected type $1($2) is
@@ -195,7 +196,7 @@ end $1;
 endsnippet
 
 # }}}
-# {{{ Tasks
+# Tasks {{{
 
 snippet task "task" b
 task $1 is
@@ -213,7 +214,7 @@ endsnippet
 
 # }}}
 # }}}
-# {{{ New types, records, ...
+# New types, records, ... {{{
 
 snippet ty "type" b
 type $1 is $2;

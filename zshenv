@@ -1,10 +1,11 @@
-# {{{ XDG
+# -*- mode: sh -*-
+# XDG {{{
 
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-# {{{ XDG-compliance
+# XDG-compliance {{{
 
 export ZSH_HOME="$XDG_CONFIG_HOME/zsh"
 export FETCHMAILHOME="$XDG_CONFIG_HOME/fetchmail"
@@ -18,14 +19,14 @@ export DVDCSS_CACHE="$XDG_CACHE_HOME/dvdcss"
 
 # }}}
 # }}}
-# {{{ History
+# History {{{
 
 export HISTFILE="$XDG_DATA_HOME/zsh/history"
 export HISTSIZE=10000
 export SAVEHIST=$HISTSIZE
 
 # }}}
-# {{{ Default software
+# Default software {{{
 
 export EDITOR=$(which vim)
 export VISUAL=$EDITOR
@@ -36,7 +37,7 @@ export LESS=FRX
 export BROWSER=$(which firefox)
 
 # }}}
-# {{{ Misc.
+# Misc. {{{
 
 export HOST
 # wine: I want 32-bit only because I play games only on Windows XP.

@@ -1,4 +1,5 @@
-% {{{ Character set/MIME support
+% -*- mode: slang -*-
+% Character set/MIME support {{{
 
 % Character set used for this configuration file.
 charset config   "utf-8"
@@ -8,7 +9,7 @@ charset display  "utf-8"
 charset outgoing "utf-8"
 
 % }}}
-% {{{ Identity
+% Identity {{{
 
 % The "From:" header is generated from the following three variables.
 set username "grim7reaper"
@@ -21,7 +22,7 @@ set replyto  "sylvain.laperche@gmail.com"
 set signature ""
 
 % }}}
-% {{{ Server settings
+% Server settings {{{
 
 % Server to use.
 nnrpaccess news.eternal-september.org grim7reaper ""
@@ -36,7 +37,7 @@ set generate_message_id 0
 set read_active 1
 
 % }}}
-% {{{ External programs
+% External programs {{{
 
 % Editor to use (use Vim for all: mail, post and score file).
 % %s is the file name and %d is the line where the cursor should be placed.
@@ -50,7 +51,7 @@ set Xbrowser "firefox '%s' &"
 set non_Xbrowser "w3m '%s'"
 
 % }}}
-% {{{ Directory/files
+% Directory/files {{{
 
 % NOTE
 % All path in this section are relative to HOME unless they start with a '/'.
@@ -74,7 +75,7 @@ set postpone_directory ".local/share/News/postponed"
 set use_tmpdir 1
 
 % }}}
-% {{{ Attribution lines/custom headers
+% Attribution lines/custom headers {{{
 
 % Message to prefix to each followup, where:
 set followup_string "%D: %r <%f>:"
@@ -82,7 +83,7 @@ set followup_string "%D: %r <%f>:"
 set reply_string    "%D: %r <%f>:"
 
 % }}}
-% {{{ Header overview preferences
+% Header overview preferences {{{
 
 % Sort by thread, then sort by date with most recent first.
 set sorting_method 9
@@ -90,13 +91,13 @@ set sorting_method 9
 header_display_format 0 "%F%B%-5S [%15r]:%t%120s %-19g[%17d]"
 
 % }}}
-% {{{ Article pager preferences.
+% Article pager preferences {{{
 
 % Headers displayed by default.
 visible_headers "From:,Subject:,Newsgroups:,Followup-To:,Reply-To:,Message-Id:"
 
 % }}}
-% {{{ Display/color settings
+% Display/color settings {{{
 
 % Don't limit yourself to simple ASCII characters to draw the thread tree.
 set simulate_graphic_chars 0

@@ -1,12 +1,13 @@
+# -*- mode: sh -*-
 zstyle :compinstall filename "$HOME/.zshrc"
 
-# {{{ Colors
+# Colors {{{
 
 autoload -Uz colors
 colors
 
 # }}}
-# {{{ Completion.
+# Completion {{{
 
 # Enable completion.
 autoload -Uz compinit
@@ -37,7 +38,7 @@ zstyle ':completion:*:processes' command 'ps -u $USER -o pid,command'
 zstyle ':completion:*:*:kill:*:processes' list-colors "=(#b) #([0-9]#)*=$color[white]=$color[blue]"
 
 # }}}
-# {{{ VCS info
+# VCS info {{{
 
 autoload -Uz vcs_info
 # Only git for now…
@@ -54,13 +55,13 @@ zstyle ':vcs_info:git*:*' formats       "%F{yellow}%r%f [%F{red}%b%f] %F{green}%
 zstyle ':vcs_info:git*+set-message:*' hooks git-stash
 
 # }}}
-# {{{ Prompt
+# Prompt {{{
 
 autoload -Uz promptinit
 promptinit
 
 # }}}
-# {{{ Misc.
+# Misc. {{{
 
 autoload -Uz terminfo
 

@@ -1,12 +1,12 @@
 set nocompatible " Disable the compatibility with Vi.
 
-" {{{ Pathogen
+" Pathogen {{{
 
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
 " }}}
-" {{{ Filetype
+" Filetype {{{
 
 " Enable loading the plugin files for specific file types.
 filetype plugin on
@@ -14,7 +14,7 @@ filetype plugin on
 filetype indent on
 
 " }}}
-" {{{ Options
+" Options {{{
 
 set title          " Set title of the window.
 set shortmess=a    " Abbreviation, but no loss of information.
@@ -59,7 +59,7 @@ set virtualedit=block "The cursor can be positioned anywhere in block mode.
 
 set nojoinspaces      " Typography: only one space after '.', '?' and '!'.
 
-" {{{ GUI
+" GUI {{{
 
 set guioptions-=m  " Remove menu bar.
 set guioptions-=T  " Remove toolbar.
@@ -73,7 +73,7 @@ colorscheme delek   " Load the colorscheme.
 syntax on           " Turn on color syntax highlighting.
 
 " }}}
-" {{{ Autocommands
+" Autocommands {{{
 
 " Treat *.tpp (C++ template implementation) files as C++.
 autocmd BufNewFile,BufRead *.tpp setfiletype=cpp
@@ -96,7 +96,7 @@ autocmd BufReadPost *
     \ endif
 
 " }}}
-" {{{ Mapping
+" Mapping {{{
 
 " Clear the search buffer when hitting return.
 nnoremap <CR> :nohlsearch<cr>
@@ -106,14 +106,14 @@ set pastetoggle=<F8>
 map <F12> mcHmh:%s/\s\+$//ge<cr>'hzt`c
 
 " }}}
-" {{{ Highlighting
+" Highlighting {{{
 
 " Highlight trailing whitespaces and spaces before a tab.
 highlight ExtraWhitespace ctermbg=red
 match ExtraWhitespace /\s\+$\| \+\ze\t/
 
 " }}}
-" {{{ Statusline
+" Statusline {{{
 
 set laststatus=2                             " Always display the statusline.
 set statusline+=%-2.2n\                      " Buffer number.
@@ -127,30 +127,30 @@ set statusline+=0x%-5B\                      " Current char.
 set statusline+=%-10.(%l,%v-%c%)\ %<%P       " Offset
 
 " }}}
-" {{{ Misc.
+" Misc. {{{
 
 let g:load_doxygen_syntax=1 " Turn on Doxygen syntax highlighting.
 
-" {{{ armasm
+" armasm {{{
 
 let asmsyntax='armasm'
 let filetype_inc='armasm'
 
 " }}}
-" {{{ noweb
+" noweb {{{
 
 let noweb_backend   = 'tex'
 let noweb_language  = 'r'
 let noweb_fold_code = 1
 
 " }}}
-" {{{ rust.vim
+" rust.vim {{{
 
 " Disable `rust_recommended_style`, otherwise `textwidth` is set to 99…
 let g:rust_recommended_style = 0
 
 " }}}
-" {{{ TOhtml settings.
+" TOhtml settings {{{
 
 let use_xhtml=1               " Generate XHTML 1.0 instead of HTML 4.01
 let html_use_css=1            " Use CSS styling.
@@ -161,7 +161,7 @@ let html_no_invalid=1         " Don't use invalid attribute for uncopyable text.
 let html_use_encoding="UTF-8" " Use UTF-8 encoding.
 
 " }}}
-" {{{ UltiSnips
+" UltiSnips {{{
 
 " Compatibility with YouCompleteMe.
 let g:UltiSnipsExpandTrigger       = "<c-j>"
@@ -172,7 +172,7 @@ let g:snips_author = "Sylvain Laperche"
 let g:snips_email  = "sylvain.laperche@gmail.com"
 
 " }}}
-" {{{ YouCompleteMe
+" YouCompleteMe {{{
 
 let g:ycm_extra_conf_vim_data   = [ '&filetype' ]
 let g:ycm_global_ycm_extra_conf = "~/.vim/ycm_extra_conf.py"

@@ -1,4 +1,5 @@
-% {{{ Spam
+% -*- mode: slang -*-
+% Spam {{{
 
 % Subjects that contain only uppercase characters.
 Score: -9999
