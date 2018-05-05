@@ -384,4 +384,9 @@ If we are inside/onto an open fold, close it and all of its children."
 (use-package yaml-mode)
 
 ;; }}}
+;; vimrc {{{
+
+(use-package vimrc-mode)
+
+;; }}}
 ;; }}}
