@@ -1,0 +1,15 @@
+# -*- mode: yaml -*-
+---
+Checks:          'android-*,boost-*,bugprone-*,cert-*,clang-analyzer-*,clang-diagnostic-*,google-build-explicit-make-pair,google-default-arguments,google-explicit-constructor,google-readability-casting,google-runtime-member-string-references,google-runtime-int,hicpp-avoid-goto,hicpp-exception-baseclass,hicpp-member-init,hicpp-no-assembler,hicpp-no-malloc,hicpp-signed-bitwise,hicpp-special-member-functions,hicpp-vararg,misc-*,modernize-*,mpi-*,performance-*,readability-*'
+WarningsAsErrors: ''
+HeaderFilterRegex: ''
+AnalyzeTemporaryDtors: false
+FormatStyle:     none
+User:            grim7reaper
+CheckOptions:
+  - key:             google-readability-braces-around-statements.ShortStatementLines
+    value:           '0'
+  - key:             modernize-use-nullptr.NullMacros
+    value:           'NULL'
+...
+# vim:ft=yaml
