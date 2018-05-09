@@ -111,6 +111,10 @@ Style/EmptyElse:
 Style/EmptyMethod:
   EnforcedStyle: expanded
 
+# That doesn"t hurt.
+Style/Encoding:
+  Enabled: false
+
 # My C background…
 Style/FormatString:
   EnforcedStyle: sprintf
