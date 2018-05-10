@@ -50,9 +50,6 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 # For pushd
 export DIRSTACKSIZE=16
 
-# For virtualenvwrapper
-export WORKON_HOME="$XDG_DATA_HOME/virtualenvs"
-
 export LS_COLORS='di=1;34:fi=0:ln=0;1;44:pi=40;33:so=01;35:bd=1;33:cd=1;33:or=5;1;31:mi=0:ex=1;32'
 
 # }}}

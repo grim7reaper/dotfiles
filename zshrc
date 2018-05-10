@@ -87,8 +87,6 @@ source "$ZSH_HOME/options"
 source "$ZSH_HOME/aliases"
 source "$ZSH_HOME/functions"
 
-source $(which virtualenvwrapper.sh)
-
 # Manage SSH keys in a convenient and secure manner.
 eval `keychain -q --eval --agents ssh id_rsa`
 
