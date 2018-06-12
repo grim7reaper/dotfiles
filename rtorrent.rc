@@ -2,28 +2,28 @@
 # General {{{
 
 # Port range to use for listening (inclusive bounds).
-port_range = 49164-49164
+network.port_range.set = 49164-49164
 # Open the listening port at a random position in the port range.
-port_random = no
+network.port_random.set = no
 # Perform hash check on torrents that have finished downloading.
-check_hash = yes
+pieces.hash.on_completion.set = yes
 
 # Default directory to save the downloaded torrents.
-directory = ~/.local/share/rtorrent/data
+directory.default.set = ~/.local/share/rtorrent/data
 # Default session directory.
-session = ~/.local/share/rtorrent/session
+session.path.set = ~/.local/share/rtorrent/session
 
 # Preferred filename encoding.
-encoding_list = UTF-8
+encoding.add = UTF-8
 
 # Enable encryption:
 # - allow incoming encrypted connections
 # - use encryption for outgoing connections
 # - if the initial outgoing connection fails, retry with encryption toggled.
-encryption = allow_incoming,try_outgoing,enable_retry
+protocol.encryption.set = allow_incoming,try_outgoing,enable_retry
 
 # Allow peer exchange (for torrents not marked private).
-peer_exchange = yes
+protocol.pex.set = yes
 
 # }}}
 # Throttling {{{
@@ -34,44 +34,57 @@ peer_exchange = yes
 # max_peers     = 1.3 *  the maximum upload speed (in kB/s).
 # max_uploads   = 1 + (upload_rate / 6)
 
-# Global upload rate (in KiB).
-upload_rate = 800
-# Global download rate (in KiB).
-download_rate = 3000
-# Maximum number of peers to connect to per torrent.
-max_peers = 1024
-# Maximum number of simultaneous uploads per torrent.
-max_uploads = 128
+# Global upload and download rate in KiB, `0` for unlimited.
+throttle.global_down.max_rate.set_kb = 800
+throttle.global_up.max_rate.set = 80
+
+# Maximum number of simultaneous downloads and uploads slots (global slots!).
+throttle.max_downloads.global.set = 150
+throttle.max_uploads.global.set   = 15
+
+# Maximum number of simultaneous downloads and uploads slots per torrent.
+throttle.max_downloads.set = 50
+throttle.max_uploads.set   = 5
+
+# Maximum/minimum number of peers to connect to per torrent while downloading.
+throttle.min_peers.normal.set = 99
+throttle.max_peers.normal.set = 100
+# Set the numwant field sent to the tracker (indicates how many peers we want).
+trackers.numwant.set = 100
+
+# Set the max amount of memory address space used to mapping file chunks.
+# This refers to memory mapping, not physical memory allocation.
+pieces.memory.max.set = 2048M
 
 # }}}
 # Trackers {{{
 
 # Allow the use of UDP trackers.
-use_udp_trackers = yes
+trackers.use_udp.set = yes
 
 # Enable DHT support for trackerless torrents or when all trackers are down.
-dht = auto
+dht.mode.set = auto
 # UDP port to use for DHT.
-dht_port = 6881
+dht.port.set = 6881
 
 # }}}
 # Scheduled actions {{{
 
 # Watch a directory for new torrents, and stop those that have been deleted.
-schedule = watch_directory,5,5,load_start=~/.local/share/rtorrent/watch/*.torrent
-schedule = tied_directory,5,5,start_tied=
-schedule = untied_directory,5,5,stop_untied=
+schedule2 = watch_directory,  5, 5, load.start=~/.local/share/rtorrent/watch/*.torrent
+schedule2 = tied_directory,   5, 5, start_tied=
+schedule2 = untied_directory, 5, 5, stop_untied=
 
 # Close torrents when diskspace is low (5G).
-schedule = low_diskspace,5,60,close_low_diskspace=5120M
+schedule2 = low_diskspace, 5, 60, ((close_low_diskspace,5120M))
 
 # }}}
 # Advanced settings {{{
 
 # Local domain socket path for XMLRPC.
-scgi_local = ~/.local/share/rtorrent/rpc.socket
+network.scgi.open_local = ~/.local/share/rtorrent/rpc.socket
 # Preallocate files (reduces defragmentation).
-system.file_allocate.set = yes
+system.file.allocate.set = yes
 
 # }}}
 # vim:ft=cfg
