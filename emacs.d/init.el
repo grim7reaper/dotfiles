@@ -323,6 +323,12 @@ If we are inside/onto an open fold, close it and all of its children."
 
 ;; }}}
 ;; }}}
+;; C++ {{{
+
+; Treat *.tpp (C++ template implementation) files as C++.
+(add-to-list 'auto-mode-alist '("\\.tpp\\'" . c++-mode))
+
+;; }}}
 ;; Rust {{{
 
 (use-package rust-mode
