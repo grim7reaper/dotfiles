@@ -20,18 +20,13 @@ brace_style         = "SameLineWhere"
 control_brace_style = "AlwaysSameLine"
 
 # Alphabetical ordering FTW.
-reorder_imports                = true
-reorder_imports_in_group       = true
-reorder_imported_names         = true
-reorder_extern_crates          = true
-reorder_extern_crates_in_group = true
+reorder_imports = true
 
 # Horizontal spacing.
 space_after_colon                 = true   # One space after a colon.
 space_before_colon                = false  # No space before a colon.
 type_punctuation_density          = "Wide" # Spaces around + and = in types.
 spaces_around_ranges              = false  # No spaces within empty ()/[].
-spaces_within_parens_and_brackets = false  # No spaces around range operators.
 
 # Vertical spacing.
 blank_lines_lower_bound = 0 # No minimum required.
@@ -55,14 +50,14 @@ tab_spaces = 4     # A tab character is four spaces.
 hard_tabs  = false # Don't use tab characters for indentation.
 
 # Misc.
-newline_style        = "Unix"  # Only use Unix line endings.
-use_small_heuristics = true    # Save some vertical space.
-format_strings       = false   # Manual split for long strings.
-fn_single_line       = false   # No special case for single line functions.
-binop_separator      = "Front" # When split, put binary operators in front.
-use_try_shorthand    = true    # Replace try! macro by ? shorthand.
-merge_derives        = true    # Merge multiple derives into a single one.
-force_explicit_abi   = true    # Always print the abi for extern items.
+newline_style        = "Unix"     # Only use Unix line endings.
+use_small_heuristics = "Default"  # Save some vertical space.
+format_strings       = false      # Manual split for long strings.
+fn_single_line       = false      # No special case for single line functions.
+binop_separator      = "Front"    # When split, put binary operators in front.
+use_try_shorthand    = true       # Replace try! macro by ? shorthand.
+merge_derives        = true       # Merge multiple derives into a single one.
+force_explicit_abi   = true       # Always print the abi for extern items.
 condense_wildcard_suffixes = true # Use .. instead of several _ in tuple.
 
 # No strong opinion on these ones: just use the defaults.
@@ -70,4 +65,3 @@ color                  = "Auto"
 combine_control_expr   = true
 empty_item_single_line = true
 where_single_line      = false
-write_mode             = "Overwrite"
