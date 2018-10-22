@@ -72,7 +72,8 @@ C_FLAGS='\
 -Wmissing-include-dirs -Wswitch-default -Wfloat-equal -Wundef -Wshadow         \
 -Wbad-function-cast -Wcast-qual -Wcast-align -Wwrite-strings -Wconversion      \
 -Wjump-misses-init -Wlogical-op -Wstrict-prototypes -Wold-style-definition     \
--Wmissing-prototypes -Wredundant-decls -Wnested-externs -pipe                  \
+-Wmissing-prototypes -Wredundant-decls -Wnested-externs                        \
+-Wimplicit-fallthrough=4 -pipe                                                 \
 '
 C_FLAGS_DEBUG='-g3 -ggdb3 -Wpadded -Wpacked'
 C_FLAGS_RELEASE='-O3 -flto -march=native -DNDEBUG'
@@ -85,7 +86,8 @@ CXX_FLAGS='\
 -Wsuggest-attribute=noreturn -Wfloat-equal -Wundef -Wshadow -Wcast-qual        \
 -Wcast-align -Wwrite-strings -Wconversion -Wsign-conversion -Wuseless-cast     \
 -Wlogical-op -Wmissing-declarations -Wredundant-decls -Wnon-virtual-dtor       \
--Wstrict-null-sentinel -Wold-style-cast -Woverloaded-virtual -pipe             \
+-Wstrict-null-sentinel -Wold-style-cast -Woverloaded-virtual                   \
+-Wimplicit-fallthrough=4 -pipe                                                 \
 '
 CXX_FLAGS_DEBUG='-g3 -ggdb3 -Wpadded -Wpacked'
 CXX_FLAGS_RELEASE='-O3 -flto -march=native -DNDEBUG -Winline'
