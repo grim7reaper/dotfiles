@@ -378,7 +378,6 @@ If we are inside/onto an open fold, close it and all of its children."
   :init
   (setq markdown-command "pandoc")
   (setq markdown-asymmetric-header t)
-  (setq markdown-hide-markup       t)
   (setq markdown-fontify-code-blocks-natively t))
 
 ; To be able to edit code blocks in indirect buffers using `C-c '`
