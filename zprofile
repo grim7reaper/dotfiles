@@ -3,7 +3,7 @@
 
 OPT_PATHS=(
     "$HOME/.local/bin"              # Local binaries
-    "$HOME/.gem/ruby/2.5.0/bin"     # Ruby gems
+    "$HOME/.gem/ruby/2.6.0/bin"     # Ruby gems
     "$HOME/.cabal/bin"              # Haskell packages
     "$HOME/.cargo/bin"              # Rust packages
 )
