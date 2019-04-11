@@ -49,6 +49,7 @@ alias lla="ls -NlhA"
 alias am='alsamixer'
 alias pm='pulsemixer'
 alias del='trash-put'
+alias dfc='dfc -t ext4,vfat'
 alias rm_sav='rm *.*~'
 alias rm_sav_hide='rm .*~'
 alias x='chmod u+x'
