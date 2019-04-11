@@ -60,6 +60,13 @@ Layout/SpaceInsideArrayLiteralBrackets:
   EnforcedStyleForEmptyBrackets: no_space
 
 # }}}
+# Metrics cops {{{
+
+# The default value (15) seems a bit too low for me.
+AbcSize:
+  Max: 20
+
+# }}}
 # Naming cops {{{
 
 # I like prefixes like `has_` and `is_`, IMHO they improve the readability.
@@ -126,7 +133,7 @@ Style/InlineComment:
   Enabled: false
 
 Style/MethodCallWithArgsParentheses:
-  IgnoredMethods: [require]
+  IgnoredMethods: [require, require_relative, include, task]
 
 Style/MethodCalledOnDoEndBlock:
   Enabled: false
