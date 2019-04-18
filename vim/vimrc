@@ -163,21 +163,9 @@ let html_use_encoding="UTF-8" " Use UTF-8 encoding.
 " }}}
 " UltiSnips {{{
 
-" Compatibility with YouCompleteMe.
-let g:UltiSnipsExpandTrigger       = "<c-j>"
-let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 " Snippet's variables
 let g:snips_author = "Sylvain Laperche"
 let g:snips_email  = "sylvain.laperche@gmail.com"
-
-" }}}
-" YouCompleteMe {{{
-
-let g:ycm_extra_conf_vim_data   = [ '&filetype' ]
-let g:ycm_global_ycm_extra_conf = "~/.vim/ycm_extra_conf.py"
-
-let g:ycm_python_binary_path = '/usr/bin/python3'
 
 " }}}
 " }}}
