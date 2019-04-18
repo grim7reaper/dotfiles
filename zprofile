@@ -1,11 +1,14 @@
 # -*- mode: sh -*-
 # PATH {{{
 
+export GOPATH="$HOME/.golang"
+
 OPT_PATHS=(
     "$HOME/.local/bin"              # Local binaries
     "$HOME/.gem/ruby/2.6.0/bin"     # Ruby gems
     "$HOME/.cabal/bin"              # Haskell packages
     "$HOME/.cargo/bin"              # Rust packages
+    "$GOPATH/bin"                   # Go packages
 )
 
 for opt_path in $OPT_PATHS; do
