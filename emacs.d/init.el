@@ -329,6 +329,27 @@ If we are inside/onto an open fold, close it and all of its children."
 (add-to-list 'auto-mode-alist '("\\.tpp\\'" . c++-mode))
 
 ;; }}}
+;; Go {{{
+
+; Depends on golang.org/x/tools/cmd/goimports
+(use-package go-mode
+  :init
+  (setq gofmt-command "goimports")  ; Use goimports instead of gofmt.
+  :hook
+  (before-save . gofmt-before-save) ; Reformat when saving.
+)
+
+; Depends on github.com/stamblerre/gocode
+(use-package company-go
+  :init
+  (setq company-go-show-annotation t)  ; Show functions prototype.
+  :hook
+  ; Load Go completion backend when loading Go mode.
+  (go-mode . (lambda ()
+               (set (make-local-variable 'company-backends) '(company-go))))
+)
+
+;; }}}
 ;; Rust {{{
 
 (use-package rust-mode
