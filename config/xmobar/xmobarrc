@@ -15,7 +15,7 @@ Config {
 
     sepChar  = "%",
     alignSep = "}{",
-    template = "%StdinReader% }{ %dynnetwork% | %multicpu% | %memory% | %battery% | %mail% | %volume% | %date%"
+    template = "%StdinReader% %mpd% }{ %dynnetwork% | %multicpu% | %memory% | %battery% | %mail% | %volume% | %date%"
 
 --* General behavior
 
@@ -29,6 +29,15 @@ Config {
 --* Commands
 
     commands = [
+
+--** MPD
+
+        Run MPD [ "--template", "<statei> <title>"
+                , "--"
+                , "-P", "| 🎜"
+                , "-Z", "| ✗"
+                , "-S", ""
+        ] 10,
 
 --** CPU
 
