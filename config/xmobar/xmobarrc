@@ -3,8 +3,8 @@
 Config {
 --* Appearance
 
-    font            = "xft:Inconsolata:size=11:antialias=true",
-    additionalFonts = ["xft:Symbola:size=11:antialias=true"],
+    font            = "xft:Inconsolata:size=8:antialias=true,WenQuanYi Micro Hei Mono:size=8.5:antialias=true,Code2000:antialias=true,Symbola:size=8:antialias=true",
+    additionalFonts = ["xft:Symbola:size=8:antialias=true"],
     bgColor         = "black",
     fgColor         = "white",
     alpha           = 255,
@@ -32,7 +32,7 @@ Config {
 
 --** CPU
 
-        Run MultiCpu   [ "--template" , "<fn=1>🗲</fn> <autototal>"
+        Run MultiCpu   [ "--template" , "🗲 <autototal>"
                        , "--Low"      , "10"    -- in %
                        , "--High"     , "50"    -- in %
                        , "--low"      , "darkgreen"
@@ -44,7 +44,7 @@ Config {
 
 --** RAM
 
-        Run Memory     [ "--template", "<fn=1>🗄</fn> <used>Mo"
+        Run Memory     [ "--template", "🗄 <used>Mo"
                        , "--Low"      , "2000"  -- in Mo (2 Go)
                        , "--High"     , "6000"  -- in Mo (6 Go)
                        , "--low"      , "darkgreen"
@@ -54,7 +54,7 @@ Config {
 
 --** Network
 
-        Run DynNetwork [ "--template" , "<fn=1>🌍</fn> <tx>/<rx>"
+        Run DynNetwork [ "--template" , "🌍 <tx>/<rx>"
                        , "--Low"      , "10000"    -- in B/s (10 kB/s)
                        , "--High"     , "1000000"  -- in B/s (1  MB/s)
                        , "--low"      , "darkred"
@@ -66,7 +66,7 @@ Config {
 
 --** Battery
 
-        Run Battery    [ "--template" , "<fn=1>🔋</fn> <acstatus>"
+        Run Battery    [ "--template" , "🔋 <acstatus>"
                        , "--Low"      , "10"     -- in %
                        , "--High"     , "80"     -- in %
                        , "--low"      , "darkred"
@@ -80,7 +80,7 @@ Config {
 
 --** Mail
 
-        Run Mail [("<fn=1>📧</fn> ", "~/.local/share/Mails/INBOX")] "mail",
+        Run Mail [("📧 ", "~/.local/share/Mails/INBOX")] "mail",
 
 --** Volume
 
