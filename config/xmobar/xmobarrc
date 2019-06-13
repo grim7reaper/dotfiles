@@ -8,7 +8,7 @@ Config {
     bgColor         = "black",
     fgColor         = "white",
     alpha           = 255,
-    position        = Top,
+    position        = TopP 0 100,
     border          = NoBorder,
 
 --* Layout

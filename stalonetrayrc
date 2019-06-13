@@ -1,6 +1,6 @@
 background   Black              # Background color.
 decorations  none               # Window decorations.
-geometry     10x1-810+0         # Tray's geometry in standard X notation.
+geometry     6x1-0+0            # Tray's geometry in standard X notation.
 grow_gravity NE                 # Tray will grow in the opposite direction.
 icon_gravity NE                 # Icon placement gravity.
 icon_size    12                 # Dimensions of typical icon slot.
