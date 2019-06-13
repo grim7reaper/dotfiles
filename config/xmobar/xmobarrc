@@ -53,7 +53,7 @@ Config {
 
 --** RAM
 
-        Run Memory     [ "--template", "🗄 <used>Mo"
+        Run Memory     [ "--template" , "🗄 <used>Mo"
                        , "--Low"      , "2000"  -- in Mo (2 Go)
                        , "--High"     , "6000"  -- in Mo (6 Go)
                        , "--low"      , "darkgreen"
