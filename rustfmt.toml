@@ -2,7 +2,7 @@
 indent_style    = "Block"
 imports_indent  = "Block"
 imports_layout  = "Mixed"
-fn_args_density = "Tall"
+fn_args_layout  = "Tall"
 
 # Line width.
 max_width              = 80   # Who need more than 80 characters?.
