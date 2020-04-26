@@ -1,0 +1,51 @@
+icons = "awesome"
+
+[[block]]
+block = "music"
+player= "mpd"
+
+[[block]]
+block    = "cpu"
+format   = "{barchart}"
+info     = 10
+warning  = 50
+critical = 90
+interval = 1
+
+[[block]]
+block        = "memory"
+display_type = "memory"
+format_mem   = "{Mug}G"
+warning_mem  = 25
+critical_mem = 75
+clickable    = false
+
+[[block]]
+block         = "net"
+device        = "enp3s0"
+hide_inactive = true
+hide_missing  = true
+
+[[block]]
+block         = "net"
+device        = "wlp2s0"
+hide_inactive = true
+hide_missing  = true
+
+[[block]]
+block  = "battery"
+device = "BAT1"
+format = "{percentage}% ({time})"
+
+[[block]]
+block = "maildir"
+inboxes = ["/home/sylvain/.local/share/Mails/INBOX"]
+interval = 60
+
+[[block]]
+block = "sound"
+
+[[block]]
+block    = "time"
+interval = 1
+format   = "%Y/%m/%d %H:%M:%S"

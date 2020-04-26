@@ -27,14 +27,6 @@ xset -b
 # Colors temperature adjustments.
 redshift-gtk&
 
-# inotify server
-twmnd&
-
-# systray
-stalonetray&
-
-# Screen locking
-xss-lock -- slock&
-
 xsetroot -cursor_name left_ptr
-exec xmonad
+
+exec i3
