@@ -37,6 +37,13 @@ export LESS=FRX
 export BROWSER=$(which firefox)
 
 # }}}
+# {{{ GPU
+
+export LIBVA_DRIVER_NAME=radeonsi
+export VDPAU_DRIVER=radeonsi
+# Set "DRI_PRIME=1" to enabled GPU offloading.
+
+# }}}
 # Misc. {{{
 
 export HOST
