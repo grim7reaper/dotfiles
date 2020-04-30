@@ -17,6 +17,7 @@ filetype indent on
 " Options {{{
 
 set title          " Set title of the window.
+set lazyredraw     " Postpone redraw when possible (faster macro).
 set shortmess=a    " Abbreviation, but no loss of information.
 set history=100    " Set the number of lines that are remembered.
 set encoding=utf-8 " Sets the character encoding used inside Vim.
