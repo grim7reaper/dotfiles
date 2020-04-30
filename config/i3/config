@@ -197,7 +197,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # }}}
-# System mode {{{
+# {{{ System mode
 
 # Inspired from https://wiki.archlinux.org/index.php/I3#Shutdown,_reboot,_lock_screen
 mode "system" {
