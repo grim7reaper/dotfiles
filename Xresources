@@ -41,3 +41,9 @@ URxvt.url-picker.launcher: firefox
 
 ! }}}
 ! }}}
+! Colors {{{
+
+! Use a cyan instead of dark blue (more legible on a black background).
+*color4: #2aa198
+
+! }}}
