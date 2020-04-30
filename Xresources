@@ -6,7 +6,7 @@ URxvt.geometry:   200x50
 URxvt.background: Black
 URxvt.foreground: White
 
-URxvt.font: xft:Inconsolata:size=8.5:antialias=true,\
+URxvt.font: xft:Iosevka Term:style=Regular:size=7.5:antialias=true,\
             xft:WenQuanYi Micro Hei Mono:size=8.5:antialias=true,\
             xft:Code2000:antialias=true,\
             xft:Symbola:antialias=true
