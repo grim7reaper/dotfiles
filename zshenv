@@ -11,6 +11,7 @@ export ZSH_HOME="$XDG_CONFIG_HOME/zsh"
 export FETCHMAILHOME="$XDG_CONFIG_HOME/fetchmail"
 export MPLAYER_HOME="$XDG_CONFIG_HOME/mplayer"
 export TASKRC="$XDG_CONFIG_HOME/taskwarrior/taskrc"
+export TIMEWARRIORDB="$XDG_DATA_HOME/timewarrior"
 
 export LESSHISTFILE="$XDG_DATA_HOME/less/history"
 export WINEPREFIX="$XDG_DATA_HOME/wine"
