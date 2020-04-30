@@ -169,6 +169,13 @@
 (defun my-ibuffer-hook ()
   (ibuffer-auto-mode 1)) ; Keeps the buffer list up to date.
 
+; Group buffers in ibuffer list by project (as long as they use a VCS).
+(use-package ibuffer-vc
+  :hook
+  (ibuffer-mode . (lambda ()
+                    (ibuffer-vc-set-filter-groups-by-vc-root)))
+)
+
 ;; }}}
 ;; Whitespace {{{
 
