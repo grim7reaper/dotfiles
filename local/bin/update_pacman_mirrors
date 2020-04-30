@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Replace the current mirrorlist by a new one from pacman if exists.
+if [ -e /etc/pacman.d/mirrorlist.pacnew ]
+then
+    mv /etc/pacman.d/mirrorlist.pacnew /etc/pacman.d/mirrorlist
+fi
+
+# Backup the current mirrorlist.
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+
+# Generate a new mirrorlist using reflector.
+reflector --country France --number 5 --sort rate --save /etc/pacman.d/mirrorlist
+
+# Force refresh of all package lists.
+pacman --sync --refresh --refresh
