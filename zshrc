@@ -87,6 +87,13 @@ source "$ZSH_HOME/options"
 source "$ZSH_HOME/aliases"
 source "$ZSH_HOME/functions"
 
+if [ -d "$ZSH_HOME/custom" ]
+then
+    for f in "$ZSH_HOME/custom/"*; do
+        source "$f"
+    done
+fi
+
 # Manage SSH keys in a convenient and secure manner.
 eval `keychain -q --eval --agents ssh id_rsa`
 
