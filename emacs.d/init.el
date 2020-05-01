@@ -244,6 +244,11 @@
 
 (use-package cmake-mode)
 
+; A client for Language Server Protocol servers.
+(use-package eglot
+  :hook
+  (rust-mode . eglot-ensure))
+
 ;; Auto-completion {{{
 
 (use-package company)
