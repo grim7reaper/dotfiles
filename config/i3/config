@@ -9,7 +9,7 @@
 # Define the modifier key as the Windows key
 set $mod Mod4
 
-# {{{ Misc.
+# Misc. {{{
 
 # Use Mouse+$mod to drag floating windows to their wanted position.
 floating_modifier $mod
@@ -18,7 +18,7 @@ floating_modifier $mod
 font pango:monospace 8
 
 # }}}
-# {{{ Workspaces
+# Workspaces {{{
 
 # Define names for workspaces for which we configure key bindings later on.
 set $ws1  "1"
@@ -68,7 +68,7 @@ assign [class="^firefox$"]                          $ws9
 assign [class="^KeePassXC$"]                        $ws10
 
 # }}}
-# {{{ Autostart
+# Autostart {{{
 
 # Listen on lock, idle, suspend and hibernate event to call the screen locker.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- lock.sh
@@ -94,7 +94,7 @@ exec keepassxc
 exec firefox
 
 # }}}
-# {{{ Keybindings
+# Keybindings {{{
 
 # Volume control.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -167,7 +167,7 @@ bindsym --release Shift+Print exec "scrot          /home/sylvain/screen_%Y-%m-%d
 # Reload the configuration file.
 bindsym $mod+Shift+c reload
 
-# {{{ Resize mode
+# Resize mode {{{
 
 # Resize window (you can also use the mouse for that).
 mode "resize" {
@@ -197,7 +197,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # }}}
-# {{{ System mode
+# System mode {{{
 
 # Inspired from https://wiki.archlinux.org/index.php/I3#Shutdown,_reboot,_lock_screen
 mode "system" {
@@ -219,7 +219,7 @@ bindsym $mod+i mode "system"
 
 # }}}
 # }}}
-# {{{ i3bar
+# i3bar {{{
 
 bar {
     position top
