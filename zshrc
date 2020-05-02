@@ -94,6 +94,11 @@ then
     done
 fi
 
+if [[ $TERM == xterm-termite ]]; then
+  . /etc/profile.d/vte.sh
+  __vte_osc7
+fi
+
 # Manage SSH keys in a convenient and secure manner.
 eval `keychain -q --eval --agents ssh id_rsa`
 

@@ -57,9 +57,9 @@ bindsym $mod+Shift+ccedilla   move container to workspace number $ws9
 bindsym $mod+Shift+agrave     move container to workspace number $ws10
 
 # Assign some applications to specific workspace.
-assign [class="^URxvt$" instance="dev"]             $ws1
-assign [class="^URxvt$" instance="remote"]          $ws2
-assign [class="^URxvt$" instance="misc"]            $ws3
+assign [class="^Termite$" window_role="dev"]        $ws1
+assign [class="^Termite$" window_role="remote"]     $ws2
+assign [class="^Termite$" window_role="misc"]       $ws3
 assign [class="^Emacs$"]                            $ws4
 assign [class="^Gajim$"]                            $ws5
 assign [class="^Amule$"]                            $ws6
@@ -83,9 +83,9 @@ exec --no-startup-id dunst -config /home/sylvain/.config/dunst/dunstrc
 exec --no-startup-id mpDris2
 
 # Spawn my initial setup.
-exec --no-startup-id urxvt -name dev
-exec --no-startup-id urxvt -name remote
-exec --no-startup-id urxvt -name misc
+exec termite --role dev
+exec termite --role remote
+exec termite --role misc
 exec uemacs
 exec amule
 exec eiskaltdcpp-qt
