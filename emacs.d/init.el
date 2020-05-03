@@ -122,13 +122,19 @@
 (line-number-mode   t)            ; Display line number in the modeline.
 (column-number-mode t)            ; Display column number in the modeline.
 
-; In GUI use white text on black background and disable toolbar and scrollbar.
+; Theme
+(use-package solarized-theme)
+(load-theme 'solarized-dark t)
+
 (if window-system
+  ; In GUI: disable toolbar and scrollbar.
   (progn
-    (set-foreground-color "white")
-    (set-background-color "black")
     (tool-bar-mode   -1)
     (scroll-bar-mode -1))
+  (progn
+    ; hack: let the terminal decide the background color.
+    ; https://github.com/bbatsov/solarized-emacs/issues/18#issuecomment-31434473
+    (custom-set-faces '(default ((t (:background "nil"))))))
 )
 
 ; Displays available keybindings in popup (good for discoverability).
