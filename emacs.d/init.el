@@ -349,6 +349,10 @@ If we are inside/onto an open fold, close it and all of its children."
   (setq gofmt-command "goimports")  ; Use goimports instead of gofmt.
   :hook
   (before-save . gofmt-before-save) ; Reformat when saving.
+  (go-mode . (lambda ()             ; Don't highlight tab (gofmt enforce tabs…).
+               (set
+                (make-local-variable 'whitespace-style)
+                '(face lines-tail trailing))))
 )
 
 ; Depends on github.com/stamblerre/gocode
