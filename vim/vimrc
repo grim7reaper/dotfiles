@@ -70,9 +70,12 @@ set guioptions-=L  " Remove left-hand scroll bar.
 
 " }}}
 
+syntax enable       " Turn on color syntax highlighting.
 set background=dark " Try to use colors that look good on a dark background.
-colorscheme delek   " Load the colorscheme.
-syntax on           " Turn on color syntax highlighting.
+
+let g:solarized_termtrans = 1   " hack: use the background of the shell.
+colorscheme solarized           " Load the colorscheme.
+highlight ColorColumn ctermbg=1 " hack: restore color (altered by solarized…).
 
 " }}}
 " Autocommands {{{
