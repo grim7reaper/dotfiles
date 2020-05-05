@@ -11,7 +11,7 @@ AllCops:
 # }}}
 # Layout cops {{{
 
-Layout/AlignHash:
+Layout/HashAlignment:
   EnforcedHashRocketStyle: table
   EnforcedColonStyle: table
   EnforcedLastArgumentHashStyle: always_inspect
@@ -38,13 +38,13 @@ Layout/FirstMethodParameterLineBreak:
 Layout/FirstParameterIndentation:
   EnforcedStyle: consistent
 
-Layout/IndentArray:
+Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
 
-Layout/IndentHash:
+Layout/FirstHashElementIndentation:
   EnforcedStyle: consistent
 
-Layout/IndentHeredoc:
+Layout/HeredocIndentation:
   EnforcedStyle: squiggly
 
 Layout/MultilineAssignmentLayout:
@@ -63,7 +63,7 @@ Layout/SpaceInsideArrayLiteralBrackets:
 # Metrics cops {{{
 
 # The default value (15) seems a bit too low for me.
-AbcSize:
+Metrics/AbcSize:
   Max: 20
 
 # }}}
@@ -71,19 +71,13 @@ AbcSize:
 
 # I like prefixes like `has_` and `is_`, IMHO they improve the readability.
 Naming/PredicateName:
-  NamePrefixBlacklist: []
+  ForbiddenPrefixes: []
 
-Naming/UncommunicativeBlockParamName:
+Naming/BlockParameterName:
   AllowNamesEndingInNumbers: false
 
-Naming/UncommunicativeMethodParamName:
+Naming/MethodParameterName:
   AllowNamesEndingInNumbers: false
-
-# }}}
-# Rails cops {{{
-
-Rails:
-  Enabled: false
 
 # }}}
 # Style cops {{{
