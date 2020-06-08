@@ -77,7 +77,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- lock.sh
 exec --no-startup-id nm-applet
 
 # Notification daemon.
-exec --no-startup-id dunst -config /home/sylvain/.config/dunst/dunstrc
+exec --no-startup-id dunst -config /home/grim7reaper/.config/dunst/dunstrc
 
 # MPRIS V2.1 support for MPD (used by i3status-rust).
 exec --no-startup-id mpDris2
@@ -161,8 +161,8 @@ bindsym $mod+b       exec "mpc prev"
 bindsym $mod+n       exec "mpc next"
 
 # Screenshot.
-bindsym --release Print       exec "scrot --select /home/sylvain/screen_%Y-%m-%d-%H-%M-%S.png"
-bindsym --release Shift+Print exec "scrot          /home/sylvain/screen_%Y-%m-%d-%H-%M-%S.png"
+bindsym --release Print       exec "scrot --select /home/grim7reaper/screen_%Y-%m-%d-%H-%M-%S.png"
+bindsym --release Shift+Print exec "scrot          /home/grim7reaper/screen_%Y-%m-%d-%H-%M-%S.png"
 
 # Reload the configuration file.
 bindsym $mod+Shift+c reload
