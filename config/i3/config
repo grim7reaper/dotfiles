@@ -63,7 +63,6 @@ assign [class="^Termite$" window_role="misc"]       $ws3
 assign [class="^Emacs$"]                            $ws4
 assign [class="^Gajim$"]                            $ws5
 assign [class="^Amule$"]                            $ws6
-assign [class="EiskaltDC"]                          $ws7
 assign [class="^firefox$"]                          $ws9
 assign [class="^KeePassXC$"]                        $ws10
 
@@ -88,7 +87,6 @@ exec termite --role remote
 exec termite --role misc
 exec uemacs
 exec amule
-exec eiskaltdcpp-qt
 exec gajim
 exec keepassxc
 exec firefox
