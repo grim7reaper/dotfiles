@@ -22,12 +22,9 @@ mpd_connection_timeout = "5"
 # The FIFO output's format is set to "44100:16:2" in mpd.conf.
 visualizer_in_stereo = "yes"
 # Path to MPD fifo output.
-visualizer_fifo_path = "/tmp/mpd.fifo"
+visualizer_data_source = "/tmp/mpd.fifo"
 # Name of output that provides data for visualizer.
 visualizer_output_name = "ncmpcpp visualization FIFO"
-# Interval (s) between syncing visualizer and audio outputs.
-# 30 seconds seems to be optimal.
-visualizer_sync_interval = "30"
 #  Visualizer type ("spectrum" requires ncmpcpp with fftw support).
 visualizer_type = "spectrum"
 # Visualizer's look.
