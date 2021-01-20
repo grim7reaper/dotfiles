@@ -72,7 +72,13 @@
 
 [core]
     editor = vim
-    pager  = less
+    pager  = delta
+
+# }}}
+# interactive {{{
+
+[interactive]
+    diffFilter = delta --color-only
 
 # }}}
 # commands {{{
@@ -133,5 +139,11 @@
 [transfer]
     # https://groups.google.com/forum/#!topic/binary-transparency/f-BI4o8HZW0
     fsckObjects = true
+
+# }}}
+# Delta {{{
+
+[delta]
+    syntax-theme = Solarized (dark)
 
 # }}}
