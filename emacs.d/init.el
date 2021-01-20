@@ -376,6 +376,8 @@ If we are inside/onto an open fold, close it and all of its children."
 
 (use-package rust-mode
   :init
+  ; Use nightly rustfmt (stable doesn't handle all the options).
+  (setq rust-rustfmt-bin "~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustfmt")
   (setq rust-format-on-save      t)  ; Call `rustfmt' on save.
   (setq rust-indent-offset       4)  ; Indent with 4 spaces.
   (setq rust-indent-method-chain t)  ; Indent method chains, aligned on '.'.
