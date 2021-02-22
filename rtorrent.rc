@@ -35,16 +35,16 @@ protocol.pex.set = yes
 # max_uploads   = 1 + (upload_rate / 6)
 
 # Global upload and download rate in KiB, `0` for unlimited.
-throttle.global_down.max_rate.set_kb = 800
-throttle.global_up.max_rate.set = 80
+throttle.global_down.max_rate.set_kb = 4000
+throttle.global_up.max_rate.set = 4000
 
 # Maximum number of simultaneous downloads and uploads slots (global slots!).
-throttle.max_downloads.global.set = 150
-throttle.max_uploads.global.set   = 15
+throttle.max_downloads.global.set = 750
+throttle.max_uploads.global.set   = 750
 
 # Maximum number of simultaneous downloads and uploads slots per torrent.
-throttle.max_downloads.set = 50
-throttle.max_uploads.set   = 5
+throttle.max_downloads.set = 250
+throttle.max_uploads.set   = 250
 
 # Maximum/minimum number of peers to connect to per torrent while downloading.
 throttle.min_peers.normal.set = 99
