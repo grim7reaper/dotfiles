@@ -250,11 +250,29 @@
 
 (use-package cmake-mode)
 
-; A client for Language Server Protocol servers.
-(use-package eglot
-  :hook
-  (rust-mode . eglot-ensure))
+(use-package flycheck)
 
+;; LSP {{{
+
+(use-package lsp-mode
+  :commands lsp
+  :custom
+  ;; Use clippy as check command.
+  (lsp-rust-analyzer-cargo-watch-command "clippy")
+  ;; Display all the info, not only the symbol info.
+  (lsp-eldoc-render-all t)
+  :hook
+  (lsp-mode-hook . lsp-ui-mode))
+
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :custom
+  ;; Show hover messages in sideline.
+  (lsp-ui-sideline-show-hover t)
+  ;; Don't show documentation in a child frame.
+  (lsp-ui-doc-enable nil))
+
+;; }}}
 ;; Auto-completion {{{
 
 (use-package company)
@@ -374,18 +392,25 @@ If we are inside/onto an open fold, close it and all of its children."
 ;; }}}
 ;; Rust {{{
 
-(use-package rust-mode
-  :init
+(use-package rustic
+  :bind (:map rustic-mode-map
+              ("M-j" . lsp-ui-imenu)
+              ("M-l" . lsp-find-references)
+              ("C-c C-c l" . flycheck-list-errors)
+              ("C-c C-c a" . lsp-execute-code-action)
+              ("C-c C-c r" . lsp-rename)
+              ("C-c C-c q" . lsp-workspace-restart)
+              ("C-c C-c Q" . lsp-workspace-shutdown)
+              ("C-c C-c s" . lsp-rust-analyzer-status))
+  :config
+  ; Call `rustfmt' on save.
+  (setq rustic-format-on-save t)
   ; Use nightly rustfmt (stable doesn't handle all the options).
-  (setq rust-rustfmt-bin "~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustfmt")
-  (setq rust-format-on-save      t)  ; Call `rustfmt' on save.
-  (setq rust-indent-offset       4)  ; Indent with 4 spaces.
-  (setq rust-indent-method-chain t)  ; Indent method chains, aligned on '.'.
-  (setq rust-indent-where-clause t)) ; Indent the line starting with `where'.
-
-(use-package cargo
+  (setq rustic-rustfmt-bin "~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustfmt")
   :hook
-  (rust-mode . cargo-minor-mode))
+  (rustic-mode-hook . (lambda ()
+               ;; so that rustic-cargo-run works without having to confirm.
+               (setq-local buffer-save-without-query t))))
 
 ;; }}}
 ;; Docker {{{
