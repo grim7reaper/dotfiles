@@ -1,7 +1,7 @@
 # "Block" style results in smaller diffs and less rightward drift.
 indent_style    = "Block"
 imports_indent  = "Block"
-imports_layout  = "Mixed"
+imports_layout  = "Vertical"
 fn_args_layout  = "Tall"
 
 # Line width.
