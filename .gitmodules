@@ -13,9 +13,6 @@
 [submodule "vim/bundle/vim-speeddating"]
 	path = vim/pack/plugin/start/vim-speeddating
 	url = https://github.com/tpope/vim-speeddating.git
-[submodule "vim/bundle/rust.vim"]
-	path = vim/pack/plugin/start/rust.vim
-	url = https://github.com/wting/rust.vim.git
 [submodule "vim/bundle/cocci-syntax"]
 	path = vim/pack/syntax/start/cocci-syntax
 	url = https://github.com/kAworu/vim-coccinelle.git
@@ -58,3 +55,6 @@
 [submodule "vim/bundle/vim-ledger"]
 	path = vim/pack/plugin/start/vim-ledger
 	url = git@github.com:ledger/vim-ledger.git
+[submodule "vim/pack/plugin/start/rust.vim"]
+	path = vim/pack/plugin/start/rust.vim
+	url = https://github.com/rust-lang/rust.vim

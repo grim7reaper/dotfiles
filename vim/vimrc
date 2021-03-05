@@ -148,6 +148,11 @@ let noweb_fold_code = 1
 " Disable `rust_recommended_style`, otherwise `textwidth` is set to 99…
 let g:rust_recommended_style = 0
 
+" Use nightly rustfmt (stable doesn't handle all the options).
+let g:rustfmt_command = '~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/bin/rustfmt'
+" Reformat code on save.
+let g:rustfmt_autosave = 1
+
 " }}}
 " TOhtml settings {{{
 
