@@ -15,7 +15,7 @@ interval = 1
 [[block]]
 block        = "memory"
 display_type = "memory"
-format_mem   = "{Mug}G"
+format_mem   = "{mem_used;G}"
 warning_mem  = 25
 critical_mem = 75
 clickable    = false
