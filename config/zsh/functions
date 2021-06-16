@@ -88,25 +88,25 @@ precmd_functions+=(prompt-precmd)
 pack()
 {
     case "$1" in
-        *.tar.gz)  tar cvzf "$1" "${1%.tar.gz}"  ;;
-        *.tar.bz2) tar cvjf "$1" "${1%.tar.bz2}" ;;
-        *.tar.xz)  tar cvJf "$1" "${1%.tar.xz}"  ;;
-        *.tar.Z)   tar cvZf "$1" "${1%.tar.Z}"   ;;
-        *.tar)     tar cvf  "$1" "${1%.tar}"     ;;
-        *.tgz)     tar cvzf "$1" "${1%.tgz}"     ;;
-        *.zip)     zip -r   "$1" "${1%.zip}"     ;;
-        *.gz)      gzip          "${1%.gz}"      ;;
-        *.bz2)     bzip2         "${1%.bz2}"     ;;
-        *.xz)      xz            "${1%.xz}"      ;;
-        *.rar)     rar a         "${1%.rar}"     ;;
-        *.Z)       compress      "${1%.Z}"       ;;
-        *.7z)      7z a          "${1%.7z}"      ;;
-        *.lzo)     lzop -v       "${1%.7z}"      ;;
-        *.lzma)    lzma -v       "${1%.lzma}"    ;;
-        *.cb7)     7z a          "${1%.cb7}"      ;;
-        *.cbr)     rar a         "${1%.cbr}"     ;;
-        *.cbt)     tar cvf  "$1" "${1%.cbt}"     ;;
-        *.cbz)     zip -r   "$1" "${1%.cbz}"     ;;
+        *.tar.gz)  tar cvzf      "$1" "${1%.tar.gz}"  ;;
+        *.tar.bz2) tar cvjf      "$1" "${1%.tar.bz2}" ;;
+        *.tar.xz)  tar cvJf      "$1" "${1%.tar.xz}"  ;;
+        *.tar.Z)   tar cvZf      "$1" "${1%.tar.Z}"   ;;
+        *.tar)     tar cvf       "$1" "${1%.tar}"     ;;
+        *.tgz)     tar cvzf      "$1" "${1%.tgz}"     ;;
+        *.zip)     zip -r        "$1" "${1%.zip}"     ;;
+        *.gz)      gzip               "${1%.gz}"      ;;
+        *.bz2)     bzip2              "${1%.bz2}"     ;;
+        *.xz)      xz                 "${1%.xz}"      ;;
+        *.rar)     rar a              "${1%.rar}"     ;;
+        *.Z)       compress           "${1%.Z}"       ;;
+        *.7z)      7z a               "${1%.7z}"      ;;
+        *.lzo)     lzop -v            "${1%.7z}"      ;;
+        *.lzma)    lzma -v            "${1%.lzma}"    ;;
+        *.cb7)     7z a               "${1%.cb7}"     ;;
+        *.cbr)     rar a              "${1%.cbr}"     ;;
+        *.cbt)     tar cvf       "$1" "${1%.cbt}"     ;;
+        *.cbz)     zip -r        "$1" "${1%.cbz}"     ;;
         *)         echo "'$1' cannot be archived via pack()" ;;
     esac
 }
