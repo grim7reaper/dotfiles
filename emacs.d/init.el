@@ -359,6 +359,12 @@ If we are inside/onto an open fold, close it and all of its children."
 
 ;; }}}
 ;; }}}
+;; ASN.1 {{{
+
+(use-package asn1-mode
+  :mode "\\.[Aa][Ss][Nn][1]?$")
+
+;; }}}
 ;; C++ {{{
 
 ; Treat *.tpp (C++ template implementation) files as C++.
