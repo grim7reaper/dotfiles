@@ -1,8 +1,7 @@
 # "Block" style results in smaller diffs and less rightward drift.
 indent_style    = "Block"
 imports_indent  = "Block"
-imports_layout  = "Vertical"
-fn_args_layout  = "Tall"
+imports_layout  = "Mixed"
 
 # Line width.
 max_width              = 80   # Who need more than 80 characters?.
@@ -51,7 +50,6 @@ hard_tabs  = false # Don't use tab characters for indentation.
 
 # Misc.
 newline_style        = "Unix"     # Only use Unix line endings.
-use_small_heuristics = "Default"  # Save some vertical space.
 format_strings       = false      # Manual split for long strings.
 fn_single_line       = false      # No special case for single line functions.
 binop_separator      = "Front"    # When split, put binary operators in front.
