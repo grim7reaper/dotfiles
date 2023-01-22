@@ -8,23 +8,23 @@ WRONG='#880000bb'
 VERIFY='#00bbbbbb'
 
 i3lock --nofork --ignore-empty-password \
-    --insidevercolor=$CLEAR   \
-    --ringvercolor=$VERIFY    \
-    --insidewrongcolor=$CLEAR \
-    --ringwrongcolor=$WRONG   \
-    --insidecolor=$BLANK      \
-    --ringcolor=$DEFAULT      \
-    --linecolor=$BLANK        \
-    --separatorcolor=$DEFAULT \
-    --verifcolor=$TEXT        \
-    --wrongcolor=$TEXT        \
-    --timecolor=$TEXT         \
-    --datecolor=$TEXT         \
-    --layoutcolor=$TEXT       \
-    --keyhlcolor=$WRONG       \
-    --bshlcolor=$WRONG        \
+    --insidever-color=$CLEAR   \
+    --ringver-color=$VERIFY    \
+    --insidewrong-color=$CLEAR \
+    --ringwrong-color=$WRONG   \
+    --inside-color=$BLANK      \
+    --ring-color=$DEFAULT      \
+    --line-color=$BLANK        \
+    --separator-color=$DEFAULT \
+    --verif-color=$TEXT        \
+    --wrong-color=$TEXT        \
+    --time-color=$TEXT         \
+    --date-color=$TEXT         \
+    --layout-color=$TEXT       \
+    --keyhl-color=$WRONG       \
+    --bshl-color=$WRONG        \
     --blur 5              \
     --clock               \
     --indicator           \
-    --timestr="%H:%M:%S"  \
-    --datestr="%Y/%m/%d" \
+    --time-str="%H:%M:%S"  \
+    --date-str="%Y/%m/%d" \
