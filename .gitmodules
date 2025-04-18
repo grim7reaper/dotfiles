@@ -4,24 +4,12 @@
 [submodule "vim/bundle/vim-commentary"]
 	path = vim/pack/plugin/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "vim/bundle/vim-fugitive"]
-	path = vim/pack/plugin/start/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
 [submodule "vim/bundle/vim-surround"]
 	path = vim/pack/plugin/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
 [submodule "vim/bundle/vim-speeddating"]
 	path = vim/pack/plugin/start/vim-speeddating
 	url = https://github.com/tpope/vim-speeddating.git
-[submodule "vim/bundle/cocci-syntax"]
-	path = vim/pack/syntax/start/cocci-syntax
-	url = https://github.com/kAworu/vim-coccinelle.git
-[submodule "vim/bundle/conky-syntax"]
-	path = vim/pack/syntax/start/conky-syntax
-	url = https://github.com/smancill/conky-syntax.vim.git
-[submodule "vim/bundle/noweb-syntax"]
-	path = vim/pack/syntax/start/noweb-syntax
-	url = https://github.com/muggenhor/Vim-Noweb.git
 [submodule "vim/bundle/tmux-syntax"]
 	path = vim/pack/syntax/start/tmux-syntax
 	url = https://github.com/pearance/vim-tmux.git
@@ -31,27 +19,12 @@
 [submodule "vim/bundle/a.vim"]
 	path = vim/pack/plugin/start/a.vim
 	url = https://github.com/vim-scripts/a.vim.git
-[submodule "vim/bundle/vimoutliner"]
-	path = vim/pack/plugin/start/vimoutliner
-	url = https://github.com/vimoutliner/vimoutliner.git
-[submodule "vim/bundle/UltiSnips"]
-	path = vim/pack/plugin/start/UltiSnips
-	url = https://github.com/SirVer/ultisnips.git
-[submodule "vim/bundle/DrawIt"]
-	path = vim/pack/plugin/start/DrawIt
-	url = https://github.com/vim-scripts/DrawIt.git
 [submodule "vim/bundle/toml-syntax"]
 	path = vim/pack/syntax/start/toml-syntax
 	url = https://github.com/cespare/vim-toml.git
-[submodule "vim/bundle/vim-haskellConceal"]
-	path = vim/pack/plugin/start/vim-haskellConceal
-	url = https://github.com/Twinside/vim-haskellConceal
 [submodule "vim/bundle/vim-endwise"]
 	path = vim/pack/plugin/start/vim-endwise
 	url = https://github.com/tpope/vim-endwise
-[submodule "vim/bundle/vim-colors-solarized"]
-	path = vim/pack/colors/start/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
 [submodule "vim/bundle/vim-ledger"]
 	path = vim/pack/plugin/start/vim-ledger
 	url = git@github.com:ledger/vim-ledger.git
